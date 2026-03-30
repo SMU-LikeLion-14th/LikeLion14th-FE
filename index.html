@@ -1,9 +1,124 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>helloWorld!</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
-    <body></body>
+    <body>
+        <main>
+            <figure>
+                <img src="./src/image/mangom.jpg" alt="프로필사진" />
+                <figcaption>
+                    <h1>전병훈</h1>
+                    <h3>FrontEnd Developer(희망)</h3>
+                    <h3>프론트엔드 개발자를 희망하는 열정남 전병훈입니다.</h3>
+                </figcaption>
+            </figure>
+            <section>
+                <input type="radio" id="tab-exp" name="portfolio-tab" checked />
+                <input type="radio" id="tab-stack" name="portfolio-tab" />
+                <input type="radio" id="tab-project" name="portfolio-tab" />
+                <nav>
+                    <ul>
+                        <li><label for="tab-exp">Exp</label></li>
+                        <li><label for="tab-stack">Stack</label></li>
+                        <li><label for="tab-project">Project</label></li>
+                    </ul>
+                </nav>
+                <ul class="tab-content content-exp">
+                    <li>
+                        <strong>26.04 ~</strong
+                        ><span>시간표 공강 찾기 서비스 '너 시간 돼?' 배포</span>
+                    </li>
+                    <li>
+                        <strong>26.03 ~</strong
+                        ><span>멋쟁이사자처럼 14기 FE 아기사자</span>
+                    </li>
+                    <li>
+                        <strong>26.02 ~</strong
+                        ><span>융합공과대학 학생회 'ON' 재정사무국 차장</span>
+                    </li>
+                    <li>
+                        <strong>26.02 ~</strong
+                        ><span>동아리 방 예약 서비스 'INYRO' 배포</span>
+                    </li>
+                    <li>
+                        <strong>25.12 ~</strong
+                        ><span>GPU Tech Lab 학부연구생</span>
+                    </li>
+                    <li>
+                        <strong>25.09 ~</strong><span>한화 가을야구 확정</span>
+                    </li>
+                    <li><strong>25.09 ~</strong><span>2학년 재학</span></li>
+                    <li><strong>22.07 ~</strong><span>휴학</span></li>
+                    <li>
+                        <strong>21.02 ~</strong
+                        ><span>상명대학교(서울) 입학</span>
+                    </li>
+                </ul>
+                <div class="tab-content content-stack">
+                    <details>
+                        <summary>Core (Languages)</summary>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>Framework / Library</summary>
+                        <ul>
+                            <li>React</li>
+                            <li>Next.js</li>
+                            <li>Redux</li>
+                            <li>Axios</li>
+                            <li>React Hook Form</li>
+                            <li>Zod</li>
+                            <li>Tesseract</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>Styling</summary>
+                        <ul>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </details>
+
+                    <details>
+                        <summary>Build & Deployment</summary>
+                        <ul>
+                            <li>Vite</li>
+                            <li>Vercel</li>
+                        </ul>
+                    </details>
+                </div>
+                <ul class="tab-content content-project">
+                    <li>
+                        <h2>너 시간 돼?</h2>
+                        <p>시간표 공강 분석 서비스</p>
+                        <a href="https://rufree.vercel.app/"
+                            >rufree.vercel.app</a
+                        >
+                    </li>
+                    <li>
+                        <h2>INYRO</h2>
+                        <p>이니로 동아리방 예약 서비스</p>
+                        <a href="https://reserve.inyro.com/"
+                            >reserve.inyro.com</a
+                        >
+                    </li>
+                    <li>
+                        <h2>noslog</h2>
+                        <p>게임 정보 제공 서비스</p>
+                        <a>미배포</a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </body>
 </html>

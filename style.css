@@ -1,0 +1,379 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+/* reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* global */
+input {
+    display: none;
+}
+nav ul li label {
+    cursor: pointer;
+    color: #888;
+    transition: all 0.2s ease;
+    padding-bottom: 0.5rem;
+    display: block;
+}
+nav ul li label:hover {
+    color: #fff;
+}
+body {
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    height: 100vh;
+    background-color: #121212;
+    font-family: "Pretendard", sans-serif;
+}
+main {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    gap: 2rem;
+    background-color: #1e1e1e;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 500px;
+    min-height: 770px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* profile */
+figure {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1.2rem;
+}
+img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #333;
+}
+figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    width: 100%;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+h3 {
+    font-size: 0.95rem;
+    color: #d9d9d9;
+    line-height: 1.4;
+    word-break: keep-all;
+}
+h3:nth-of-type(1) {
+    color: orange;
+    font-weight: 600;
+}
+
+/* nav */
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    border-bottom: 1px solid #333;
+    padding: 0;
+}
+
+/* tab global - animation */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* tab global - input */
+#tab-exp:checked ~ .content-exp,
+#tab-stack:checked ~ .content-stack,
+#tab-project:checked ~ .content-project {
+    display: flex;
+}
+#tab-exp:checked ~ nav ul li:nth-child(1) label,
+#tab-stack:checked ~ nav ul li:nth-child(2) label,
+#tab-project:checked ~ nav ul li:nth-child(3) label {
+    font-weight: 700;
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+
+/* list global */
+.tab-content {
+    padding: 0;
+    font-size: 0.95rem;
+    gap: 1rem;
+}
+
+/* tab-exp */
+strong {
+    font-weight: 700;
+    color: orange;
+    width: 4.5rem;
+    display: inline-block;
+}
+.content-exp {
+    flex-direction: column;
+    padding: 0.5rem !important;
+}
+.content-exp li {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0;
+}
+
+/* tab-stack */
+.content-stack {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+.content-stack summary::-webkit-details-marker {
+    display: none;
+}
+.content-stack details {
+    background-color: #262626;
+    border: 1px solid #333;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+.content-stack details[open] {
+    border: 1px solid rgba(255, 165, 0, 0.4);
+}
+.content-stack summary {
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #d9d9d9;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s;
+}
+.content-stack summary::after {
+    content: "+";
+    color: orange;
+    font-size: 1.2rem;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+}
+.content-stack details[open] summary {
+    color: orange;
+    margin-bottom: 1rem;
+}
+.content-stack details[open] summary::after {
+    transform: rotate(45deg);
+}
+.content-stack details ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+}
+.content-stack details li {
+    border-radius: 2rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: rgba(255, 165, 0, 0.1);
+    color: orange;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    transition: all 0.2s;
+}
+.content-stack details li:hover {
+    background-color: rgba(255, 165, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* tab-project */
+p {
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+.content-project {
+    flex-direction: column;
+}
+.content-project li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #262626;
+    border: 1px solid #333;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition:
+        transform 0.2s,
+        background-color 0.2s;
+}
+.content-project li:hover {
+    background-color: #2a2a2a;
+    transform: translateY(-3px);
+}
+.content-project a {
+    color: orange;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 0.2rem;
+}
+.content-project a:hover {
+    text-decoration: underline;
+}
