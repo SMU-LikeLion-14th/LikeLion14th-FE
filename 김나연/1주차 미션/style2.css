@@ -1,0 +1,20 @@
+.pic{
+  position: absolute;
+  right: 30px;
+  top:20px;
+  width: 8%;
+}
+.pic img{
+  width:300px;
+}
+.small{
+  position: absolute;
+  left: 10px;
+  top:0px;
+  width: 60%;
+}
+.big{
+  position: relative;
+  width: 400px;
+  height: 300px;
+}
