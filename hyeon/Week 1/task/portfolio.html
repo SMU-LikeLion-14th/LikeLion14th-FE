@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyeon Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css" />
+  </head>
+  <body>
+    <div class="card">
+      <input type="radio" name="tab-group" id="tab1" checked />
+      <input type="radio" name="tab-group" id="tab2" />
+      <input type="radio" name="tab-group" id="tab3" />
+
+      <div class="profile-header">
+        <div class="profile">
+          <img src="profile.jpg" alt="안경만두" />
+        </div>
+        <h1>이혜연</h1>
+        <p class="job">FrontEnd Developer</p>
+        <p class="intro">성장하는 프론트엔드 개발자 이혜연입니다</p>
+      </div>
+      <br />
+      <div class="tab-menu">
+        <label for="tab1" class="tab-label">Experience</label>
+        <label for="tab2" class="tab-label">Skills</label>
+        <label for="tab3" class="tab-label">Project</label>
+      </div>
+
+      <div class="content">
+        <div id="experience" class="tab-content">
+          <ul class="exp-list">
+            <li><span>26.03 ~</span> 멋쟁이사자처럼 14기 FE</li>
+            <li><span>25.03 ~ 26.02</span> 구름톤 유니브 3기 FE</li>
+          </ul>
+        </div>
+
+        <div id="skill" class="tab-content">
+          <ul class="skill-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+          </ul>
+        </div>
+
+        <div id="project" class="tab-content">
+          <div class="project-item">
+            <h3>Care Free Pass</h3>
+            <p>
+              병원에 방문하지 않고, 도착 인식부터 시작하여 호출까지 지원하는
+              병원 예약·대기 지원 시스템
+            </p>
+            <div class="tag-row"><span class="tag-capsule">2025.09</span></div>
+          </div>
+          <div class="project-item">
+            <h3>Graphear</h3>
+            <p>시각장애 학생의 학습 보조를 위한 서비스</p>
+            <div><span class="tag-capsule">2025.12</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

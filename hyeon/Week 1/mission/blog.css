@@ -1,0 +1,23 @@
+main {
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #edecec;
+  border-radius: 5px;
+}
+
+.text-area {
+  display: inline-block;
+  width: 75%;
+  padding-left: 1%;
+}
+
+.photo-area {
+  display: inline-block;
+  margin-left: 2%;
+  width: 20%;
+}
+
+.photo-area img {
+  width: 100%;
+}
