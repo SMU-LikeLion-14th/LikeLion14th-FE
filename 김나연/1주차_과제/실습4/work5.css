@@ -1,0 +1,18 @@
+.parent{
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: cadetblue;
+}
+.child{
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background-color: rgb(185, 133, 234);
+  top: 1%;
+  opacity: 0.8;
+}
+
+.child h6{
+  text-align: center;
+}
