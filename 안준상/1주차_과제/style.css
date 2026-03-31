@@ -1,0 +1,325 @@
+/* 기본 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 화면 전체 배경 설정 */
+body {
+  background-color: #161722;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 프로필 뒤에서 빛나는 그라데이션 효과 */
+.background-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(173, 60, 239, 0.5) 0%,
+    rgba(22, 23, 34, 0) 70%
+  );
+  z-index: 1;
+
+  animation: moveGlow 8s ease-in-out infinite;
+}
+
+/* 그라데이션이 부드럽게 움직이는 애니메이션 */
+@keyframes moveGlow {
+  0%,
+  100% {
+    top: 50%;
+    left: 50%;
+  }
+  25% {
+    top: 45%;
+    left: 55%;
+  }
+  50% {
+    top: 55%;
+    left: 45%;
+  }
+  75% {
+    top: 50%;
+    left: 55%;
+  }
+}
+
+/* 메인 카드 디자인 */
+.portfolio-card {
+  background-color: rgba(37, 31, 40, 0.45);
+  width: 380px;
+  border-radius: 24px;
+  padding: 40px 30px;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* 프로필 영역 정렬 및 간격 */
+.profile-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 프로필 사진 울렁거리게 만들기 */
+.avatar {
+  width: 110px;
+  height: 110px;
+  border: #4b384b solid 1px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+
+  object-fit: cover;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(244, 87, 255, 0.3);
+
+  animation: blobby 5s ease-in-out infinite;
+}
+
+/* 울렁거리는 애니메이션 */
+@keyframes blobby {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+/* 이름 스타일 */
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+/* 직무(#FrontEnd Developer) 스타일 */
+.role {
+  font-size: 14px;
+  color: #a94eca;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* 소개 문구 스타일 */
+.catchphrase {
+  font-size: 13px;
+  color: #a0a0b0;
+}
+
+/* 탭 메뉴 전체를 감싸는 상자 */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 개별 탭 글자 스타일 */
+.tab {
+  padding-bottom: 10px;
+  font-size: 14px;
+  color: #a0a0b0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* 탭에 마우스를 올렸을 때 */
+.tab:hover {
+  color: #ffffff;
+}
+
+/* 활성화된(선택된) 탭 스타일 */
+.tab.active {
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom: 2px solid #a94eca;
+}
+
+.tab-content {
+  padding-top: 24px;
+  height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+
+/* 웹킷(크롬, 사파리, 엣지) 브라우저 스크롤바 예쁘게 꾸미기 */
+.tab-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tab-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tab-content::-webkit-scrollbar-thumb {
+  background-color: rgba(169, 78, 202, 0.4);
+  border-radius: 10px;
+}
+
+.tab-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(169, 78, 202, 0.8);
+}
+
+/* 탭 내용이 부드럽게 나타나는 애니메이션 */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 만들어둔 애니메이션(fadeUp)을 각 탭의 내용에 적용 */
+#experience,
+#skills,
+#project {
+  animation: fadeUp 0.4s ease-out forwards;
+}
+
+/* Experience */
+/* Experience 리스트 스타일 */
+.experience-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 각 항목(li) 내부 요소 정렬 */
+.experience-list li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+/* 날짜 스타일 */
+.experience-list .date {
+  width: 100px;
+  color: #a0a0b0;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* 활동 내용 스타일 */
+.experience-list .desc {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Skills */
+/* 배지들을 담는 컨테이너 */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* 개별 배지 디자인 */
+.skill-badge {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* 배지에 마우스를 올렸을 때 */
+.skill-badge:hover {
+  background-color: rgba(169, 78, 202, 0.2);
+  border-color: #a94eca;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Project */
+/* 프로젝트 영역 상단 여백 */
+#project {
+  padding-top: 10px;
+}
+
+/* 프로젝트 카드들을 세로로 배치 */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 개별 프로젝트 카드 디자인 */
+.project-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #a94eca;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* 카드에 마우스를 올렸을 때 (Hover 효과) */
+.project-card:hover {
+  background-color: rgba(169, 78, 202, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 프로젝트 제목 */
+.project-title {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+/* 프로젝트 설명 */
+.project-desc {
+  font-size: 13px;
+  color: #a0a0b0;
+  margin-bottom: 14px;
+}
+
+/* 프로젝트 태그들을 담는 상자 */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 개별 태그 디자인 */
+.project-tags .tag {
+  font-size: 11px;
+  color: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
