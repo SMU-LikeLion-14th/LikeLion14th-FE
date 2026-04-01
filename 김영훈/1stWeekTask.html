@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../김영훈/1stWeekTask.css">
+    <title>포트폴리오</title>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="김영훈.jpg" alt="김영훈">
+        </div>
+        <h2>김 영 훈</h2>
+        <div class="container-contents">
+            <p>멋쟁이 사자처럼 14기 아기사자 김영훈입니다.</p>
+        </div>
+
+        <!-- radio: 버튼, id: 고유 이름
+            name: 같은 이름이면 하나로 묶이고 그 중 하나만 선택 가능
+            checked: 체크된 상태 유지 -->
+        <input type="radio" id="tab1" name="tab" checked>
+        <input type="radio" id="tab2" name="tab">
+        <input type="radio" id="tab3" name="tab">
+
+        <div class="tab-bar">
+            <!-- 라벨을 통해 글자를 클릭할 수 있음 -->
+            <label for="tab1" class="tab">소개</label>
+            <label for="tab2" class="tab">경력</label>
+            <label for="tab3" class="tab">목표</label>
+        </div>
+
+        <!-- 탭이 선택되었을 때 나타날 내용, id: 체크여부 판단할 때 활용 -->
+        <div class="tab-content" id="content1">
+            <p>• 상명대학교 컴퓨터과학전공 23학번</p>
+            <p>• 멋쟁이 사자처럼 14기 프론트엔드</p>
+            <p>• E-MAIL: younghk0527@naver.com</p>
+            <p>• GIT: <a style="color: black;" href="https://github.com/hoon8158" target="_blank">
+                https://github.com/hoon8158</a>
+            </p>
+        </div>
+
+        <div class="tab-content" id="content2">
+            <p>• 알 깨기 게임(PYTHON)</p>
+            <p>• 학점 계산기(C)</p>
+            <p>• 운동 일지 사이트(JAVA, SPRING)</p>
+        </div>
+
+        <div class="tab-content" id="content3">
+            <p>• 프론트엔드 기초 학습</p>
+            <p>• 프로젝트 진행</p>
+            <p>• 멋사 화이팅</p>
+        </div>
+    </div>
+</body>
+</html>
