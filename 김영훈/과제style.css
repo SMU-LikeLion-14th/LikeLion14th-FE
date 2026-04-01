@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(315deg, rgb(94, 93, 93), rgb(42, 42, 42));
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container {
+    width: 400px;
+    height: 600px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #99b9f5, #2a5298);
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.container-image img{
+    width: 40%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.container-contents{
+    font-size: 15px;
+    color: #000000;
+}
+
+.tab-bar {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0);
+}
+
+.tab {
+    flex: 1; /* 가로 3등분 */
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+    font-size: 15px;
+}
+
+.tab:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.tab-content {
+    display: none;
+    margin-top: 15px;
+    color: black;
+    font-size: 15px;
+}
