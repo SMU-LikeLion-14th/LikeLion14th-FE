@@ -1,0 +1,23 @@
+nav {
+  height: 80px;
+  background-color: rgb(92, 82, 82);
+  color: white;
+
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  padding: 16px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+li {
+  padding: 16px;
+}
