@@ -1,0 +1,29 @@
+body {
+  color: white;
+  text-align: center;
+}
+
+.Lee {
+  background-color: #ff0505;
+  margin: 30px;
+  padding: 100px;
+  font-size: 50px;
+  width: 300px;
+}
+
+.Hye {
+  background-color: #1fae1f;
+  margin-left: 70px;
+  padding: 50px;
+  font-size: 20px;
+  width: 100px;
+  border: 5px solid rgb(176, 200, 24);
+}
+
+.Yeon {
+  background-color: rgb(21, 21, 118);
+  margin: 100px;
+  padding: 30px;
+  width: 200px;
+  font-size: 30px;
+}
