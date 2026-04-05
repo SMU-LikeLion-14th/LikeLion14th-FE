@@ -1,0 +1,50 @@
+section {
+    display: flex;
+    width: 50%;
+    height: 60%;
+    justify-content: center;
+}
+article {
+    display: flex;
+    height: 100%;
+    border-bottom: 1rem solid black;
+    place-items: end;
+}
+div {
+    width: 5rem;
+    height: 5rem;
+    background-color: orange;
+    border-radius: 100%;
+    animation: moving 1s cubic-bezier(0.33, 0, 0.67, 1) infinite;
+}
+
+@keyframes moving {
+    0% {
+        transform: translateY(-250%);
+        box-shadow:
+            0 10px 10px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+            0 4px 5px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    }
+    40% {
+        transform: translateY(0%);
+        width: 5.2rem;
+        height: 4rem;
+        box-shadow:
+            0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+            0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    }
+    60% {
+        transform: translateY(0%);
+        width: 4.8rem;
+        height: 5.1rem;
+        box-shadow:
+            0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+            0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    }
+    100% {
+        transform: translateY(-250%);
+        box-shadow:
+            0 10px 10px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+            0 4px 5px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    }
+}

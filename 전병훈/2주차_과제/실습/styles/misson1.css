@@ -1,0 +1,30 @@
+nav {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+}
+button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.75rem;
+    color: white;
+    background-color: #5a3bff;
+    opacity: 50%;
+    border: none;
+    font-size: 0.75rem;
+    transition: 0.1s;
+}
+
+/* btn-hover */
+button:hover {
+    box-shadow:
+        0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+        0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    cursor: pointer;
+    opacity: 100%;
+    transition: 0.1s;
+    scale: 1.05;
+}
