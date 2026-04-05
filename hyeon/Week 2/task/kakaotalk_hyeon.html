@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[이혜연] Kakao Talk</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="kakaotalk_hyeon.css" />
+  </head>
+  <body>
+    <div id="friends"></div>
+    <div id="chat"></div>
+    <div id="more"></div>
+
+    <div class="loading-container">
+      <div class="loading-overlay load-friends">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-chat">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-more">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+    </div>
+
+    <div class="main">
+      <nav>
+        <a href="#friends" class="nav-item btn-friends"
+          ><i class="fa-regular fa-user"></i><span>친구</span></a
+        >
+        <a href="#chat" class="nav-item btn-chat"
+          ><i class="fa-solid fa-comment"></i><span>채팅</span></a
+        >
+        <a href="#more" class="nav-item btn-more"
+          ><i class="fa-solid fa-ellipsis"></i><span>더보기</span></a
+        >
+      </nav>
+
+      <div class="content-area">
+        <section class="page-friends">
+          <header class="friends-header">
+            <h1 class="friends-title">친구</h1>
+            <div class="friends-icon">
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+          </header>
+          <div class="my-profile">
+            <div class="user-profile">
+              <img src="profile.jpg" alt="나의 프로필" />
+              <div class="user-profile-text">
+                <h2>이혜연</h2>
+                <p>멋쟁이 사자는 어흥~</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="friends-profile">
+            <div class="birth-friends">
+              <p class="friends-category">생일인 친구 1</p>
+              <div class="user-profile">
+                <img src="image.png" alt="생일자의 프로필" />
+                <div class="user-profile-text">
+                  <h2>강사자</h2>
+                  <p>오늘 생일이에요!</p>
+                </div>
+              </div>
+            </div>
+            <div class="friends-list">
+              <p class="friends-category">친구 5</p>
+              <div class="user-profile">
+                <img src="image.png" alt="친구의 프로필" />
+                <div class="user-profile-text">
+                  <h2>김사자</h2>
+                  <p>오늘 뭐먹지</p>
+                </div>
+              </div>
+              <div class="user-profile">
+                <img src="image.png" alt="친구의 프로필" />
+                <div class="user-profile-text">
+                  <h2>박사자</h2>
+                  <p>파스타 어떰</p>
+                </div>
+              </div>
+              <div class="user-profile">
+                <img src="image.png" alt="친구의 프로필" />
+                <div class="user-profile-text">
+                  <h2>이사자</h2>
+                  <p>누가 요즘 파스타를 먹냐</p>
+                </div>
+              </div>
+              <div class="user-profile">
+                <img src="image.png" alt="친구의 프로필" />
+                <div class="user-profile-text">
+                  <h2>정사자</h2>
+                  <p>그럼 김밥 어때</p>
+                </div>
+              </div>
+              <div class="user-profile">
+                <img src="image.png" alt="친구의 프로필" />
+                <div class="user-profile-text">
+                  <h2>홍사자</h2>
+                  <p>레전드 좋은 생각</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-chat">
+          <header class="chat-header">
+            <h1 class="chat-title">채팅</h1>
+            <div class="chat-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-gear"></i>
+            </div>
+          </header>
+          <div class="user-chat">
+            <img src="image.png" alt="채팅친구의 프로필" />
+            <div class="user-chat-content">
+              <div class="chat-name-time">
+                <h2>강사자와 친구들 (4)</h2>
+                <p>오후 6:30</p>
+              </div>
+              <div class="chat-text-num">
+                <p class="chat-text">그래서 뭐 먹을거냐고</p>
+                <p class="chat-num">6</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-chat">
+            <img src="image.png" alt="채팅친구의 프로필" />
+            <div class="user-chat-content">
+              <div class="chat-name-time">
+                <h2>계란 김밥</h2>
+                <p>오후 3:30</p>
+              </div>
+              <div class="chat-text-num">
+                <p class="chat-text">김밥은 역시 계란 김밥이지</p>
+                <p class="chat-num">2</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-chat">
+            <img src="image.png" alt="채팅친구의 프로필" />
+            <div class="user-chat-content">
+              <div class="chat-name-time">
+                <h2>어묵 국물</h2>
+                <p>오후 1:40</p>
+              </div>
+              <div class="chat-text-num">
+                <p class="chat-text">컵라면이야 나야!! 당장 정해</p>
+                <p class="chat-num">8</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-chat">
+            <img src="image.png" alt="채팅친구의 프로필" />
+            <div class="user-chat-content">
+              <div class="chat-name-time">
+                <h2>파스타</h2>
+                <p>오전 11:00</p>
+              </div>
+              <div class="chat-text-num">
+                <p class="chat-text">우리 내일 만나기로 한 거 있지 않았지?</p>
+                <p class="chat-num">1</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-chat">
+            <img src="image.png" alt="채팅친구의 프로필" />
+            <div class="user-chat-content">
+              <div class="chat-name-time">
+                <h2>서브웨이</h2>
+                <p>오전 10:23</p>
+              </div>
+              <div class="chat-text-num">
+                <p class="chat-text">
+                  날이 이렇게 좋은데 샌드위치 피크닉 안간다고
+                </p>
+                <p class="chat-num">3</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-chat">
+            <img src="image.png" alt="채팅친구의 프로필" />
+            <div class="user-chat-content">
+              <div class="chat-name-time">
+                <h2>엽떡</h2>
+                <p>어제</p>
+              </div>
+              <div class="chat-text-num">
+                <p class="chat-text">마라로제엽떡 안 먹을거야? 진짜로?</p>
+                <p class="chat-num">2</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-chat">
+            <img src="image.png" alt="채팅친구의 프로필" />
+            <div class="user-chat-content">
+              <div class="chat-name-time">
+                <h2>뼈해장국</h2>
+                <p>어제</p>
+              </div>
+              <div class="chat-text-num">
+                <p class="chat-text">한국인은 밥심이지!!</p>
+                <p class="chat-num">1</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-more">
+          <header class="more-header">
+            <h1 class="more-title">더보기</h1>
+            <div class="more-icon">
+              <i class="fa-solid fa-border-all"></i>
+            </div>
+          </header>
+          <div class="my-profile">
+            <div class="user-profile">
+              <img src="profile.jpg" alt="나의 프로필" />
+              <div class="user-profile-info">
+                <div class="user-profile-text">
+                  <h2>이혜연</h2>
+                  <p>010-1234-5678</p>
+                </div>
+                <div class="profile-info">
+                  <i class="fa-solid fa-circle-info"></i>
+                </div>
+              </div>
+            </div>
+            <div class="more-menu-list">
+              <div class="more-menu">
+                <i class="fa-solid fa-envelope"></i>
+                <p>메일</p>
+              </div>
+              <div class="more-menu">
+                <i class="fa-solid fa-calendar-days"></i>
+                <p>캘린더</p>
+              </div>
+              <div class="more-menu">
+                <i class="fa-solid fa-box-archive"></i>
+                <p>서랍</p>
+              </div>
+              <div class="more-menu">
+                <i class="fa-solid fa-gift"></i>
+                <p>선물하기</p>
+              </div>
+              <div class="more-menu">
+                <i class="fa-solid fa-shop"></i>
+                <p>쇼핑하기</p>
+              </div>
+              <div class="more-menu">
+                <i class="fa-regular fa-face-smile"></i>
+                <p>이모티콘</p>
+              </div>
+              <div class="more-menu">
+                <i class="fa-solid fa-palette"></i>
+                <p>테마</p>
+              </div>
+              <div class="more-menu">
+                <i class="fa-solid fa-clapperboard"></i>
+                <p>카카오TV</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="more-notice">
+            <h2>공지사항</h2>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <div class="more-version">
+            <h2>버전 정보</h2>
+            <div class="more-version-info">
+              <p>26.04.05</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
