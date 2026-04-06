@@ -1,8 +1,109 @@
+/* 매우중요중요로딩 */
+@keyframes hideSplashScreen {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+#splash-screen {
+    background-color: yellow;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    animation: hideSplashScreen 0.4s ease-in-out forwards;
+    animation-delay: 0.25s;
+}
+
 /* global */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    cursor: pointer;
+}
+hr {
+    width: 90%;
+    border: 1px solid #f0f0f0;
+}
+article {
+    display: flex;
+    align-items: center;
+}
+article span {
+    color: gray;
+}
+
+/* layout */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* aside */
+aside {
+    display: none;
+}
+aside ul {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #d9d9d9;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+    gap: 2rem;
+}
+aside ul li a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 968px) {
+    .layout {
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+    }
+    .layout footer {
+        display: none;
+    }
+    aside {
+        display: flex;
+    }
+}
+
+/* more-notice */
+#more-notice {
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* container */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3rem;
+    text-align: center;
+}
+.container figure figcaption {
+    margin-top: 0.5rem;
 }
 
 /* header */
@@ -18,7 +119,17 @@ h1 {
 }
 nav {
     display: flex;
-    gap: 0.5rem;
+    gap: 2rem;
+}
+
+section {
+    display: flex;
+    padding: 1.5rem;
+    border-radius: 25%;
+    gap: 1rem;
+}
+section img {
+    border-radius: 25%;
 }
 
 /* main */
@@ -38,7 +149,12 @@ main ul li {
     display: flex;
     gap: 1rem;
 }
+main ul li img {
+    border-radius: 25%;
+}
 .talk-content {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -81,7 +197,7 @@ footer ul {
     padding: 1rem;
     text-align: center;
 }
-footer ul li {
+footer ul li a {
     display: flex;
     align-items: center;
     flex-direction: column;
