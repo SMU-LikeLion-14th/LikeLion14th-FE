@@ -55,13 +55,16 @@
   font-size: 15px;
 }
 
+body{
+  margin:0;
+}
 /* --- 2. Flexbox Layout (핵심 레이아웃) --- */
 .main {
   /* 자식 요소들 가로 배치 및 ~~ 전체 화면 높이/ 너비 설정 해보세요 */
   display: flex;
-  min-width: 500px;
-  min-height: 700px;
   border: var(--bg-sidebar);
+  width: 100vw;
+  height: 100vh;
 }
 
 nav {
@@ -140,6 +143,7 @@ nav {
 }
 
 .date {
+  right: 10px;
   margin-left: auto;
   font-size: 13px;
   color: #6c6a6a;
@@ -233,6 +237,7 @@ nav {
   padding: 20px 0;
   border-bottom: 1px solid #848484;
 }
+
 .all{
   gap: 30px;
 }
