@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card {
+        margin: 30px 0;
+        padding: 40px 80px;
+        border: 2px solid rgb(135, 129, 129);
+        border-radius: 15px;
+        animation-name: moving;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes moving {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Mission 2: 둥둥 뜨는 카드 만들기</h1>
+    <div class="card">
+      <h3>안녕하세요 구현희입니다.</h3>
+      <p>CSS 애니메이션!</p>
+    </div>
+  </body>
+</html>
