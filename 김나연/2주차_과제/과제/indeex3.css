@@ -38,6 +38,10 @@
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 .nav-item {
   display: flex;
   flex-direction: column;
@@ -122,6 +126,16 @@ nav {
   display: flex;
 }
 
+#friends:target ~ .main .btn-friends i,
+#friends:target ~ .main .btn-friends span,
+#chat:target ~ .main .btn-chat i,
+#chat:target ~ .main .btn-chat span,
+#more:target ~ .main .btn-more i,
+#more:target ~ .main .btn-more span {
+  color:var(--kakao-brown);
+  font-weight: bold;
+}
+
 /* --- 5. Media Queries (반응형 디자인) --- */
 /* 화면 너비가 600px 미만일 때 적용되는 '모바일 전용' 스타일 */
 @media (max-width: 600px) {
@@ -140,7 +154,8 @@ nav {
 .friend {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
+  width: 100%;
 }
 
 .a img,
@@ -157,7 +172,8 @@ nav {
 .chatting {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 10px;
   width: 100%;
 }
 
@@ -300,5 +316,4 @@ nav {
   font-size: 15px;
   font-weight: 200px;
 }
-
 
