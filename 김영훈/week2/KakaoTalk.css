@@ -1,0 +1,508 @@
+/* --- 요기는 건들지 않으셔도 됩니당 --- */
+:root {
+  --kakao-yellow: #fee500;
+  --kakao-brown: #3c1e1e;
+  --bg-sidebar: #f2f2f2;
+  --white: #ffffff;
+  --border: #e5e5e5;
+  --text-gray: #999;
+}
+
+/* --- 1. CSS Animation (동적 효과) 만들어보기--- */
+/* @keyframes: 시간 흐름에 따른 스타일 변화 정의 */
+@keyframes floating {
+  /* 위아래로 움직이는 효과 */
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes kakaoLoading {
+  0% {
+    /* 화면에 보이기 */
+    opacity: 1;
+    visibility: visible;
+  }
+  80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    /* 화면에 보이기 */
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* --- 2. Flexbox Layout (핵심 레이아웃) --- */
+body {
+  margin: 0;
+}
+
+.main {
+  /* 자식 요소들 가로 배치 및 ~~ 전체 화면 높이/ 너비 설정 해보세요 */
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+nav {
+  /* 아이콘들을 세로로 나열하고 중앙 정렬하세요  */
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+}
+
+.nav-item {
+  /* 링크 표시 밑줄 지우기 */
+  text-decoration: none;
+  color: var(--kakao-brown);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.nav-item i {
+  font-size: 22px;
+}
+
+.content-area {
+  /* nav를 제외한 나머지 모든 공간을 자동으로 채움 */
+  flex: 1;
+  background-color: var(--white);
+  position: relative;
+}
+
+/* --- 3. Interactive CSS (상태 변화) --- */
+
+/* target된 section만 표시하기 */
+#friends:target ~ .main .page-friends,
+#chat:target ~ .main .page-chat,
+#more:target ~ .main .page-more {
+  /* 평소 display: none인 섹션을 화면에 표시 */
+  display: block;
+}
+
+/* 다른 페이지는 숨김 상태 */
+#chat:target ~ .main .page-friends,
+#chat:target ~ .main .page-more,
+#more:target ~ .main .page-friends,
+#more:target ~ .main .page-chat,
+#friends:target ~ .main .page-chat,
+#friends:target ~ .main .page-more {
+  display: none;
+}
+
+/* 로딩화면 기본 틀 */
+.loading-container {
+  /* 로딩화면 고정 */
+  position: fixed;
+  /* 로딩화면 전체 화면 채우기 */
+  inset: 0;
+  /* 클릭 허용 */
+  pointer-events: none;
+  /* 화면 우선순위 */
+  z-index: 9999;
+}
+
+/* 로딩화면 디자인 */
+.loading-overlay {
+  display: flex;
+  /* container 속성 상속 */
+  position: absolute;
+  /* 동일하게 화면 채우기 */
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--kakao-yellow);
+
+  /* 보이지 않게 */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 로딩화면 카톡 아이콘 */
+.loading-icon {
+  color: var(--kakao-brown);
+  font-size: 50px;
+  animation: floating 0.5s infinite alternate;
+}
+
+#friends:target ~ .loading-container .load-friends,
+#chat:target ~ .loading-container .load-chat,
+#more:target ~ .loading-container .load-more {
+  display: flex;
+  /* 애니메이션 끝난 뒤 마지막 상태 유지(보이지 않게) */
+  animation: kakaoLoading 1s forwards;
+}
+
+/* 각 페이지 디자인 */
+
+/* 페이지 공통 */
+.page-friends,
+.page-chat,
+.page-more {
+  display: none;
+  background-color: var(--white);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  /* 스크롤바 */
+  overflow-y: auto;
+}
+
+.friends-header,
+.chat-header,
+.more-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.friends-header i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.friends-item,
+.friends-birthday {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+.friends-item:hover,
+.friends-birthday:hover {
+  background-color: #f2f2f2;
+}
+
+.friends-item i {
+  font-size: 50px;
+  margin: 0px;
+  margin-left: 10px;
+  color: #bbb;
+}
+
+.friends-birthday i {
+  font-size: 50px;
+  margin: 0px;
+  margin-left: 10px;
+  color: pink;
+}
+
+.friends-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.friends-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.friends-status {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 3px;
+}
+
+.friends-seperate {
+  display: flex;
+  width: 100%;
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.chat-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.chat-icons i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chat-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+.chat-item:hover {
+  background-color: #f2f2f2;
+}
+
+.chat-item i {
+  font-size: 60px;
+  margin: 0px;
+  margin-left: 10px;
+  color: paleturquoise;
+}
+
+.chat-detail {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.chat-nametime {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.chat-time {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 3px;
+}
+
+.chat-previewalert {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-alert {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.chat-preview {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 3px;
+}
+
+.more-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.more-icons i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.more-user {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.more-user i {
+  font-size: 50px;
+  margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #bbb;
+}
+
+.more-user:hover,
+.more-notice:hover,
+.more-version:hover {
+  background-color: #f2f2f2;
+}
+
+.more-profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.more-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.more-phone {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 3px;
+}
+
+.more-info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.more-info i {
+  font-size: 20px;
+  color: var(--kakao-yellow);
+}
+
+.more-info i:hover,
+.more-notice i:hover,
+.more-version i:hover {
+  cursor: pointer;
+}
+
+.more-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-left: -20px;
+}
+
+.more-menuicons {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  margin: 14px 0;
+}
+
+.more-menuiconset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.more-menuicons i {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--border);
+  border-radius: 40%;
+  background-color: var(--bg-sidebar);
+  font-size: 30px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.more-menuiconname {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.more-menuicon1,
+.more-menuicon2 {
+  display: flex;
+  align-items: center;
+}
+
+
+.more-notice,
+.more-version {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+}
+
+.more-noticename,
+.more-versionname {
+  margin-left: 10px;
+}
+
+.more-notice i,
+.more-version i {
+  margin-right: 10px;
+}
+
+.more-versiondetail {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+/* --- 5. Media Queries (반응형 디자인) --- */
+/* 화면 너비가 600px 미만일 때 적용되는 '모바일 전용' 스타일 */
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column;
+  }
+
+  nav {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+    position: fixed;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: var(--bg-sidebar);
+    border-right: none;
+    border-top: 1px solid var(--border);
+    z-index: 9999;
+  }
+
+  .nav-item {
+    /* 링크 표시 밑줄 지우기 */
+    text-decoration: none;
+    color: var(--kakao-brown);
+    display: flex;
+    font-size: 14px;
+    margin-top: 0;
+  }
+
+  .more-menuicons i {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 40%;
+    background-color: var(--bg-sidebar);
+    font-size: 20px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .more-menuiconname {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+}
