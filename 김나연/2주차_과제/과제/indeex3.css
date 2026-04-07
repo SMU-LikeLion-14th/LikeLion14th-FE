@@ -105,6 +105,7 @@ nav {
 .page-chat,
 .page-more{
   display: none;
+  width: 100%;
 }
 
 #friends:target ~ .loading-container .load-friends,
@@ -135,20 +136,6 @@ nav {
   }
 }
 
-.ata {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0;
-}
-
-.date {
-  right: 10px;
-  margin-left: auto;
-  font-size: 13px;
-  color: #6c6a6a;
-  font-weight: 300;
-}
 
 .friend {
   display: flex;
@@ -171,7 +158,9 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
+
 
 .a,
 .b,
@@ -180,6 +169,7 @@ nav {
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  width: 100%;
 }
 
 .fr {
@@ -207,7 +197,7 @@ nav {
 .ata {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex:1;
 }
 
 .chat {
@@ -217,9 +207,10 @@ nav {
 .roww {
   display: flex;
   justify-content: space-between;
-  min-width: 400px;
+  width: 100%;
 }
 .date {
+  margin-left: auto;
   font-size: 13px;
   color: #6c6a6a;
   font-weight: 300;
@@ -230,6 +221,7 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
 .add{
   min-width: 500px;
   display: flex;
@@ -240,6 +232,7 @@ nav {
 
 .all{
   gap: 30px;
+  width: 100%;
 }
 
 .icon{
@@ -248,6 +241,7 @@ nav {
   flex-wrap: nowrap;
   padding: 10px 10px 40px 10px;
   border-bottom: 1px solid #848484;
+  width: 100%;
 }
 
 .item{
@@ -276,6 +270,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   gap: 400px;
+  width: 100%;
 }
 
 .version{
@@ -283,6 +278,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   gap: 300px;
+  width: 100%;
 }
 
 
