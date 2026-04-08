@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} /*로딩 여백 제거겸*/
+
 /* --- 요기는 건들지 않으셔도 됩니당 --- */
 :root {
   --kakao-yellow: #fee500;
@@ -115,6 +121,14 @@ nav {
 #more:target ~ .main .page-more {
   display: flex;
   flex-direction: column;
+}
+
+/* nav avtive: 누르면 찐해지는 표시*/
+#friends:target ~ .main .btn-friends,
+#chat:target ~ .main .btn-chat,
+#more:target ~ .main .btn-more {
+  color: var(--kakao-brown);
+  font-weight: bold;
 }
 
 /* --- 5. Media Queries (반응형 디자인) --- */
