@@ -71,10 +71,18 @@ nav {
   justify-content: center;
   margin-top: 40px;
   font-size: 14px;
+  color: var(--text-gray);
 }
 
 .nav-item i {
   font-size: 22px;
+}
+
+#friends:target ~ .main nav a[href="#friends"],
+#chat:target ~ .main nav a[href="#chat"],
+#more:target ~ .main nav a[href="#more"] {
+  color: var(--kakao-brown);
+  font-weight: bold;
 }
 
 .content-area {
@@ -426,7 +434,6 @@ nav {
   align-items: center;
 }
 
-
 .more-notice,
 .more-version {
   width: 100%;
@@ -486,6 +493,7 @@ nav {
     display: flex;
     font-size: 14px;
     margin-top: 0;
+    color: var(--text-gray);
   }
 
   .more-menuicons i {
