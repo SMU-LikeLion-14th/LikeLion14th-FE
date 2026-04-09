@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kakao Talk 과제</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="indeex3.css" />
+  </head>
+  <body>
+    <div id="friends"></div>
+    <div id="chat"></div>
+    <div id="more"></div>
+
+    <div class="loading-container">
+      <div class="loading-overlay load-friends">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-chat">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-more">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>    
+    </div>
+
+    <div class="main">
+      <nav>
+        <a href="#friends" class="nav-item btn-friends"
+          ><i class="fa-regular fa-user"></i><span>친구</span></a
+        >
+        <a href="#chat" class="nav-item btn-chat"
+          ><i class="fa-solid fa-comment"></i><span>채팅</span></a
+        >
+        <a href="#more" class="nav-item btn-more"
+          ><i class="fa-solid fa-ellipsis"></i><span>더보기</span></a
+        >
+      </nav>
+
+      <div class="content-area">
+        <section class="page-friends">
+          <div class="friend">
+            <h3>친구</h3>
+            <div class="a">
+              <img src="profile.jpg" alt="프사" />
+              <div class="small">
+                <span class="name">김나연</span>
+                <span class="ex">과제 중 ....ㅠ</span>
+              </div>
+            </div>
+
+            <span class="fr">친구 3</span>
+            <div class="b">
+              <img src="profile.jpg" alt="프사" />
+              <div class="small">
+                <span class="name">김멋사</span>
+                <span class="ex">야호 봄이다 ~!</span>
+              </div>
+            </div>
+
+            <div class="b">
+              <img src="profile.jpg" alt="프사" />
+              <div class="small">
+                <span class="name">김햄</span>
+                <span class="ex">피곤해</span>
+              </div>
+            </div>
+
+            <div class="b">
+              <img src="profile.jpg" alt="프사" />
+              <div class="small">
+                <span class="name">김순애</span>
+                <span class="ex">인생을 즐겁게 ~^^</span>
+              </div>
+            </div>
+
+            <div class="c">
+              <img src="kakao.jpg" alt="프사" />
+              <div class="small">
+                <span class="name">나은성</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="page-chat">
+          <div class="chatting">
+            <h3>채팅</h3>
+            <div class="d">
+              <img src="profile.jpg" alt="프사" />
+              <div class="ata">
+                <div class="roww">
+                  <span class="name">김멋사</span>
+                  <span class="date">오후 11:32</span>
+                </div>
+                <span class="chat">그래서 과제가 뭐라고?</span>
+              </div>
+            </div>
+
+          <div class="d">
+            <img src="profile.jpg" alt="프사" />
+            <div class="ata">
+              <div class="roww">
+                <span class="name">어무니</span>
+                <span class="date">오후 6:30</span>
+              </div>
+              <span class="chat">저녁밥은 먹었니??</span>
+            </div>
+          </div>
+
+          <div class="d">
+            <img src="profile.jpg" alt="프사" />
+            <div class="ata">
+              <div class="roww">
+                <span class="name">김 햄</span>
+                <span class="date">오후 1:20</span>
+              </div>
+              <span class="chat">야 학교 언제 옴?</span>
+            </div>
+          </div>
+        </section>
+        <section class="page-more">
+          <div class="all">
+            <h3>더보기</h3>
+            <div class="add">
+              <img src="profile.jpg" alt="프사"/>
+              <div class="pp">
+                <span class="name">김나연</span>
+                <span class="ex">010-1234-5678</span>
+              </div>
+            </div>
+            
+            <div class="icon">
+              <div class="item"><i class="fa-regular fa-envelope"></i><span>메일</span></div>
+              <div class="item"><i class="fa-regular fa-calendar"></i><span>캘린더</span></div>
+              <div class="item"><i class="fa-solid fa-tv"></i><span>카카오TV</span></div>
+              <div class="item"><i class="fa-solid fa-gift"></i><span>선물하기</span></div>
+            </div>
+
+            <div class="notice">
+              <span class="on">공지사항</span>
+              <span>></span>
+            </div>
+
+            <div class="version">
+              <span class="in">버전 정보</span>
+              <span class="num">10.5.0    ></span>
+            </div>
+
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

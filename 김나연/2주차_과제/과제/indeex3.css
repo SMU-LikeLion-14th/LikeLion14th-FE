@@ -1,0 +1,319 @@
+/* --- 요기는 건들지 않으셔도 됩니당 --- */
+:root {
+  --kakao-yellow: #fee500;
+  --kakao-brown: #3c1e1e;
+  --bg-sidebar: #f2f2f2;
+  --white: #ffffff;
+  --border: #e5e5e5;
+  --text-gray: #999;
+}
+
+/* --- 1. CSS Animation (동적 효과) 만들어보기--- */
+/* @keyframes: 시간 흐름에 따른 스타일 변화 정의 */
+@keyframes floating {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-30px);
+  } /* 위아래로 움직이는 효과 */
+}
+
+@keyframes kakaoLoading {
+  0% {
+    opacity: 1;
+    background-color: var(--kakao-yellow);
+  }
+  1% {
+    opacity: 1;
+    background-color: var(--kakao-yellow);
+  }
+  90% {
+    opacity: 1;
+    background-color: var(--kakao-yellow);
+  }
+  100% {
+    background-color: var(--kakao-yellow);
+    visibility: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item i {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #3c1e1e;
+}
+
+.nav-item span {
+  color: #6c6a6a;
+  font-size: 15px;
+}
+
+body{
+  margin:0;
+}
+/* --- 2. Flexbox Layout (핵심 레이아웃) --- */
+.main {
+  /* 자식 요소들 가로 배치 및 ~~ 전체 화면 높이/ 너비 설정 해보세요 */
+  display: flex;
+  border: var(--bg-sidebar);
+  width: 100vw;
+  height: 100vh;
+}
+
+nav {
+  /* 아이콘들을 세로로 나열하고 중앙 정렬하세요  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f2f2f2;
+  gap: 40px;
+  padding: 12px;
+}
+
+.content-area {
+  flex: 1;
+  /* [공부!] nav를 제외한 나머지 모든 공간을 자동으로 채움 */
+}
+
+.loading-icon {
+  color: var(--kakao-brown);
+  animation: floating 2s 1 forwards;
+  font-size: 60px;
+}
+
+.loading-overlay {
+  display: none;
+  position: fixed;
+  animation: kakaoLoading 2s 1 forwards;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-friends,
+.page-chat,
+.page-more{
+  display: none;
+  width: 100%;
+}
+
+#friends:target ~ .loading-container .load-friends,
+#chat:target ~ .loading-container .load-chat,
+#more:target ~ .loading-container .load-more {
+  display: flex;
+}
+
+/* --- 3. Interactive CSS (상태 변화) --- */
+/* 평소 display: none인 섹션을 화면에 표시 */
+#friends:target ~ .main .page-friends,
+#chat:target ~ .main .page-chat,
+#more:target ~ .main .page-more {
+  display: flex;
+}
+
+#friends:target ~ .main .btn-friends i,
+#friends:target ~ .main .btn-friends span,
+#chat:target ~ .main .btn-chat i,
+#chat:target ~ .main .btn-chat span,
+#more:target ~ .main .btn-more i,
+#more:target ~ .main .btn-more span {
+  color:var(--kakao-brown);
+  font-weight: bold;
+}
+
+/* --- 5. Media Queries (반응형 디자인) --- */
+/* 화면 너비가 600px 미만일 때 적용되는 '모바일 전용' 스타일 */
+@media (max-width: 600px) {
+  .main{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+
+.friend {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.a img,
+.b img,
+.c img,
+.d img,
+.add img {
+  width: 52px;
+  height: 52px;
+  border-radius: 20px;
+}
+
+.small,
+.chatting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+
+.a,
+.b,
+.c,
+.d {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.fr {
+  font-weight: 100;
+  font-size: 15px;
+  gap: 20px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #4f4d4d;
+}
+
+.ex {
+  font-weight: normal;
+  font-size: 10px;
+  color: #6c6a6a;
+}
+
+.content-area {
+  margin: 35px;
+}
+
+.ata {
+  display: flex;
+  flex-direction: column;
+  flex:1;
+}
+
+.chat {
+  font-size: 15px;
+  font-weight: 300;
+}
+.roww {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.date {
+  margin-left: auto;
+  font-size: 13px;
+  color: #6c6a6a;
+  font-weight: 300;
+}
+
+.pp,
+.all{
+  display: flex;
+  flex-direction: column;
+}
+
+.add{
+  min-width: 500px;
+  display: flex;
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 1px solid #848484;
+}
+
+.all{
+  gap: 30px;
+  width: 100%;
+}
+
+.icon{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 10px 10px 40px 10px;
+  border-bottom: 1px solid #848484;
+  width: 100%;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+}
+
+.item i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-sidebar)
+}
+
+.icon span{
+  text-align: center;
+  color:#4f4d4d;
+  font-size: 10px;
+}
+
+.notice{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 400px;
+  width: 100%;
+}
+
+.version{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 300px;
+  width: 100%;
+}
+
+
+.on{
+  font-size: 17px;
+  color: #2f2f2f;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.in{
+  font-size: 17px;
+  color: #2f2f2f;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.num{
+  font-size: 15px;
+  font-weight: 200px;
+}
+
