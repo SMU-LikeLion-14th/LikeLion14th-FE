@@ -1,0 +1,312 @@
+/* --- 요기는 건들지 않으셔도 됩니당 --- */
+:root {
+  --kakao-yellow: #fee500;
+  --kakao-brown: #3c1e1e;
+  --bg-sidebar: #f2f2f2;
+  --white: #ffffff;
+  --border: #e5e5e5;
+  --text-gray: #999;
+}
+
+/* --- 1. CSS Animation (동적 효과) 만들어보기--- */
+.loading-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--kakao-yellow);
+  color: var(--kakao-brown);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: kakaoLoading 2s ease-in-out forwards;
+}
+
+.loading-icon {
+  font-size: 100px;
+  animation: floating 1s ease-in-out infinite alternate;
+}
+
+#friends:target ~ .loading-container .load-friends,
+#chat:target ~ .loading-container .load-chat,
+#more:target ~ .loading-container .load-more {
+  display: flex;
+  animation: kakaoLoading 1s ease-in-out forwards;
+}
+
+/* @keyframes: 시간 흐름에 따른 스타일 변화 정의 */
+@keyframes floating {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  } /* 위아래로 움직이는 효과 */
+}
+
+@keyframes kakaoLoading {
+  0%,
+  80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* --- 2. Flexbox Layout (핵심 레이아웃) --- */
+.main {
+  /* 자식 요소들 가로 배치 및 ~~ 전체 화면 높이/ 너비 설정 해보세요 */
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  /* 아이콘들을 세로로 나열하고 중앙 정렬하세요  */
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  background-color: var(--bg-sidebar);
+  padding: 15px 0;
+  display: flex;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--kakao-brown);
+  font-size: 25px;
+  padding: 20px;
+}
+
+.nav-item span {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+#friends:target ~ .main nav .btn-friends,
+#chat:target ~ .main nav .btn-chat,
+#more:target ~ .main nav .btn-more {
+  color: rgb(222, 6, 6);
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  /* [공부!] nav를 제외한 나머지 모든 공간을 자동으로 채움 */
+}
+
+/* --- 3. Interactive CSS (상태 변화) --- */
+/* 평소 display: none인 섹션을 화면에 표시 */
+.page-friends,
+.page-chat,
+.page-more {
+  display: none;
+}
+
+#friends:target ~ .main .page-friends,
+#chat:target ~ .main .page-chat,
+#more:target ~ .main .page-more {
+  display: block;
+}
+
+/* --- 4. 페이지 스타일 지정 --- */
+/* 0. header style */
+.page-friends,
+.page-chat,
+.page-more {
+  margin: 20px;
+}
+
+.friends-header,
+.chat-header,
+.more-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  max-height: 10%;
+  font-size: 18px;
+}
+
+.friends-icon,
+.chat-icon,
+.more-icon {
+  font-size: 25px;
+  color: var(--kakao-brown);
+}
+
+/* 1.friends page */
+.my-profile {
+  border-bottom: 1px solid var(--border);
+}
+
+.user-profile,
+.user-chat {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.user-profile img,
+.user-chat img {
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+  margin-right: 20px;
+}
+
+.user-profile-text h2,
+.chat-name-time h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.user-profile-text p,
+.chat-text {
+  font-size: 14px;
+  margin: 5px 0 0 0;
+  color: var(--text-gray);
+}
+
+.birth-friends {
+  margin: 30px 0 30px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.friends-category {
+  color: var(--text-gray);
+  font-size: 12px;
+}
+
+/* 2. chat page */
+
+.chat-icon i {
+  margin-left: 20px;
+}
+.user-chat-content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100vw;
+  justify-content: space-between;
+}
+
+.chat-name-time,
+.chat-text-num {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 5px 0;
+}
+
+.chat-name-time p {
+  font-size: 12px;
+  margin: 0;
+  color: var(--text-gray);
+}
+
+.chat-num {
+  background-color: red;
+  width: 15px;
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+  color: white;
+  font-size: 10px;
+  border-radius: 100%;
+}
+
+/* 3. more page */
+
+.user-profile-info {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-profile-info i {
+  font-size: 18px;
+  color: var(--kakao-brown);
+}
+
+.more-menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 20px;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.more-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  color: var(--kakao-brown);
+}
+
+.more-menu i {
+  padding: 15px;
+  border-radius: 40%;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+.more-menu p,
+.more-version-info p {
+  font-size: 13px;
+  color: var(--text-gray);
+}
+
+.more-notice,
+.more-version {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.more-version h2,
+.more-notice h2 {
+  font-size: 18px;
+}
+
+.more-version i,
+.more-notice i {
+  color: var(--text-gray);
+}
+
+.more-version-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+/* --- 5. Media Queries (반응형 디자인) --- */
+/* 화면 너비가 600px 미만일 때 적용되는 '모바일 전용' 스타일 */
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+  nav {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+}
