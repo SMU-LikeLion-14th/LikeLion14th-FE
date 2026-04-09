@@ -1,0 +1,35 @@
+/* global */
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section {
+    display: flex;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d9d9d9;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    gap: 0.25rem;
+}
+input {
+    border: 1px solid #d9d9d9;
+    border-radius: 0.25rem;
+    font-size: 0.5rem;
+    padding: 0.34rem;
+    min-width: 10rem;
+}
+button {
+    background-color: aqua;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.67rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
