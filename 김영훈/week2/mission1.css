@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.missionbtn{
+    background-color: red;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    transition: 0.3s;
+    font-weight: bold;
+    font-size: 20px
+}
+
+.missionbtn:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}

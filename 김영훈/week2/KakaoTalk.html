@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kakao Talk 과제</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="KakaoTalk.css" />
+  </head>
+  <body>
+    <div id="friends"></div>
+    <div id="chat"></div>
+    <div id="more"></div>
+
+    <div class="loading-container">
+      <div class="loading-overlay load-friends">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-chat">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-more">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+    </div>
+
+    <div class="main">
+      <nav>
+        <a href="#friends" class="nav-item btn-friends"
+          ><i class="fa-regular fa-user"></i><span>친구</span></a
+        >
+        <a href="#chat" class="nav-item btn-chat"
+          ><i class="fa-solid fa-comment"></i><span>채팅</span></a
+        >
+        <a href="#more" class="nav-item btn-more"
+          ><i class="fa-solid fa-ellipsis"></i><span>더보기</span></a
+        >
+      </nav>
+
+      <div class="content-area">
+        <section class="page-friends">
+
+          <header>
+            <h2 class="friends-header">
+              친구
+              <i class="fa-solid fa-user-plus"></i>
+            </h2>
+          </header>
+
+          <friend>
+
+            <user>
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">김영훈</span>
+                  <span class="friends-status">안녕하세요</span>
+                </div>
+              </div>
+            </user>
+
+            <div class="friends-seperate">생일인 친구 1</div>
+
+            <birthday>
+              <div class="friends-birthday">
+                <i class="fa-solid fa-cake-candles"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">김나연</span>
+                  <span class="friends-status">저 오늘 생일 아니에요</span>
+                </div>
+              </div>
+            </birthday>
+
+            <div class="friends-seperate">친구 9</div>
+
+            <friends>
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">지유진</span>
+                  <span class="friends-status">뉴진스의 유진스</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">이현석</span>
+                  <span class="friends-status">상병 이현석!</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">김준겸</span>
+                  <span class="friends-status">피파 드루와</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">이상원</span>
+                  <span class="friends-status">군대 언제 가냐...</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">김동민</span>
+                  <span class="friends-status">전역 언제 하냐...</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">이상원</span>
+                  <span class="friends-status">이세은 바보</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">이세은</span>
+                  <span class="friends-status">이상원 바보</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">송혜주</span>
+                  <span class="friends-status">얘 요즘 뭐하고 사냐?</span>
+                </div>
+              </div>
+
+              <div class="friends-item">
+                <i class="fa-solid fa-circle-user"></i>
+                <div class="friends-profile">
+                  <span class="friends-name">이재민</span>
+                  <span class="friends-status">나 홀로 03</span>
+                </div>
+              </div>
+            </friends>
+
+          </friend>
+
+        </section>
+
+        <section class="page-chat">
+
+          <header>
+            <h2 class="chat-header">
+              채팅
+              <div class="chat-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-gear"></i>
+              </div>
+            </h2>
+          </header>
+
+          <chatting>
+            <div class="chat-item">
+              <i class="fa-solid fa-square" style="color: antiquewhite"></i>
+              <div class="chat-detail">
+                <div class="chat-nametime">
+                  <span class="chat-name">마라탕 정산</span>
+                  <span class="chat-time">오전 12:20</span>
+                </div>
+                <div class="chat-previewalert">
+                  <span class="chat-preview">얘들아 뭐해</span>
+                  <span class="chat-alert">12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-item">
+              <i class="fa-solid fa-square"></i>
+              <div class="chat-detail">
+                <div class="chat-nametime">
+                  <span class="chat-name">교수님</span>
+                  <span class="chat-time">오전 11:20</span>
+                </div>
+                <div class="chat-previewalert">
+                  <span class="chat-preview"
+                    >교수님, 시험 좀 쉽게 내주세요</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-item">
+              <i class="fa-solid fa-square" style="color: aquamarine"></i>
+              <div class="chat-detail">
+                <div class="chat-nametime">
+                  <span class="chat-name">14기 프론트 - 전체</span>
+                  <span class="chat-time">오후 1:20</span>
+                </div>
+                <div class="chat-previewalert">
+                  <span class="chat-preview">여러분 과제 내세요</span>
+                  <span class="chat-alert">1</span>
+                </div>
+              </div>
+            </div>
+          </chatting>
+
+        </section>
+
+        <section class="page-more">
+
+          <header>
+            <h2 class="more-header">
+              더보기
+              <div class="more-icons">
+                <i class="fa-solid fa-border-all"></i>
+              </div>
+            </h2>
+          </header>
+
+          <profile>
+            <div class="more-user">
+              <i class="fa-solid fa-circle-user"></i>
+              <div class="more-profile">
+                <span class="more-name">김영훈</span>
+                <span class="more-phone">010-5938-8158</span>
+              </div>
+              <div class="more-info">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+            </div>
+          </profile>
+
+          <menu>
+            <div class="more-menu">
+              <div class="more-menuicon1">
+                <div class="more-menuicons">
+                  <div class="more-menuiconset">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span class="more-menuiconname">메일</span>
+                  </div>
+
+                  <div class="more-menuiconset">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span class="more-menuiconname">일정</span>
+                  </div>
+
+                  <div class="more-menuiconset">
+                    <i class="fa-solid fa-box-archive"></i>
+                    <span class="more-menuiconname">서랍</span>
+                  </div>
+
+                  <div class="more-menuiconset">
+                    <i class="fa-solid fa-gift"></i>
+                    <span class="more-menuiconname">선물하기</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="more-menuicon2">
+                <div class="more-menuicons">
+                  <div class="more-menuiconset">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="more-menuiconname">쇼핑하기</span>
+                  </div>
+
+                  <div class="more-menuiconset">
+                    <i class="fa-regular fa-face-grin"></i>
+                    <span class="more-menuiconname">이모티콘</span>
+                  </div>
+
+                  <div class="more-menuiconset">
+                    <i class="fa-solid fa-palette"></i>
+                    <span class="more-menuiconname">테마</span>
+                  </div>
+
+                  <div class="more-menuiconset">
+                    <i class="fa-solid fa-clapperboard"></i>
+                    <span class="more-menuiconname">카카오TV</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </menu>
+
+          <notice>
+            <div class="more-notice">
+              <span class="more-noticename">공지사항</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </div>
+          </notice>
+
+          <version>
+            <div class="more-version">
+              <span class="more-versionname">버전 정보</span>
+              <div class="more-versiondetail">
+                <span style="font-size: 14px; color: var(--text-gray);">10.5.0</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </div>
+            </div>
+          </version>
+
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
