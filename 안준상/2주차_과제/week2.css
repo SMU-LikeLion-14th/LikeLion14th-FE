@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} /*로딩 여백 제거겸*/
+
+/* --- 요기는 건들지 않으셔도 됩니당 --- */
+:root {
+  --kakao-yellow: #fee500;
+  --kakao-brown: #3c1e1e;
+  --bg-sidebar: #f2f2f2;
+  --white: #ffffff;
+  --border: #e5e5e5;
+  --text-gray: #999;
+}
+
+/* --- 1. CSS Animation (동적 효과) 만들어보기--- */
+/* @keyframes: 시간 흐름에 따른 스타일 변화 정의 */
+@keyframes floating {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-15px);
+  } /* 위아래로 움직이는 효과 */
+}
+
+@keyframes kakaoLoading {
+  0%,
+  80% {
+    opacity: 1;
+    z-index: 999;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+/* 로딩 화면 스타일 */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--kakao-yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: -1;
+}
+
+.loading-icon {
+  font-size: 80px;
+  color: var(--kakao-brown);
+  animation: floating 0.5s ease-in-out infinite alternate;
+}
+
+#friends:target ~ .loading-container .load-friends,
+#chat:target ~ .loading-container .load-chat,
+#more:target ~ .loading-container .load-more {
+  animation: kakaoLoading 1s forwards;
+}
+
+/* --- 2. Flexbox Layout (핵심 레이아웃) --- */
+.main {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-sidebar);
+  /* 자식 요소들 가로 배치 및 ~~ 전체 화면 높이/ 너비 설정 해보세요 */
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  width: 80px;
+  background-color: var(--white);
+  padding-top: 30px;
+  gap: 30px;
+  /* 아이콘들을 세로로 나열하고 중앙 정렬하세요  */
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-gray);
+  font-size: 12px;
+  gap: 5px;
+  text-decoration: none;
+}
+
+.nav-item i {
+  font-size: 24px;
+}
+
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  /* [공부!] nav를 제외한 나머지 모든 공간을 자동으로 채움 */
+}
+
+/* --- 3. Interactive CSS (상태 변화) --- */
+/* 평소 display: none인 섹션 */
+.page-friends,
+.page-chat,
+.page-more {
+  display: none;
+  padding: 20px;
+}
+
+/* 평소 display: none인 섹션을 화면에 표시 */
+#friends:target ~ .main .page-friends,
+#chat:target ~ .main .page-chat,
+#more:target ~ .main .page-more {
+  display: flex;
+  flex-direction: column;
+}
+
+/* nav avtive: 누르면 찐해지는 표시*/
+#friends:target ~ .main .btn-friends,
+#chat:target ~ .main .btn-chat,
+#more:target ~ .main .btn-more {
+  color: var(--kakao-brown);
+  font-weight: bold;
+}
+
+/* --- 5. Media Queries (반응형 디자인) --- */
+/* 화면 너비가 600px 미만일 때 적용되는 '모바일 전용' 스타일 */
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+
+  nav {
+    flex-direction: row;
+    width: 100vw;
+    height: 70px;
+    padding-top: 0;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* 프로필, 친구창 영역 스타일*/
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 20px 0;
+}
+
+.header-icon {
+  display: flex;
+  gap: 15px;
+  font-size: 25px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  gap: 15px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  background-color: var(--border);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--kakao-brown);
+}
+
+.profile-status {
+  font-size: 12px;
+  color: var(--text-gray);
+}
+
+.birthday-section h2,
+.friend-list h2 {
+  font-size: 12px;
+  color: var(--text-gray);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid var(--border);
+}
+
+/* 체팅 창 스타일 */
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  gap: 15px;
+}
+
+.chat-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-title-row,
+.chat-msg-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--kakao-brown);
+}
+
+.chat-time {
+  font-size: 12px;
+  color: var(--text-gray);
+}
+
+.chat-msg {
+  font-size: 13px;
+  color: var(--text-gray);
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-badge {
+  background-color: #f55d5d;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 50%;
+}
+
+/* 더보기 창 스타일 */
+.more-profile {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 30px 0;
+  gap: 15px;
+}
+
+.more-profile .profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 22px;
+}
+
+.more-profile .profile-status {
+  font-size: 13px;
+  color: var(--text-gray);
+}
+
+.more-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /*열 개수 정하기: repeat가 편하다네요*/
+  gap: 20px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+}
+
+.more-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--kakao-brown);
+  font-size: 13px;
+}
+
+.more-item i {
+  font-size: 24px;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 20px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.info-title {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--kakao-brown);
+}
+
+.info-icon {
+  color: var(--text-gray);
+  font-size: 13px;
+}

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kakao Talk 과제</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="week2.css" />
+  </head>
+  <body>
+    <div id="friends"></div>
+    <div id="chat"></div>
+    <div id="more"></div>
+
+    <div class="loading-container">
+      <div class="loading-overlay load-friends">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-chat">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+      <div class="loading-overlay load-more">
+        <i class="fa-solid fa-comment loading-icon"></i>
+      </div>
+    </div>
+
+    <div class="main">
+      <nav>
+        <a href="#friends" class="nav-item btn-friends"
+          ><i class="fa-regular fa-user"></i><span>친구</span></a
+        >
+        <a href="#chat" class="nav-item btn-chat"
+          ><i class="fa-solid fa-comment"></i><span>채팅</span></a
+        >
+        <a href="#more" class="nav-item btn-more"
+          ><i class="fa-solid fa-ellipsis"></i><span>더보기</span></a
+        >
+      </nav>
+
+      <div class="content-area">
+        <section class="page-friends">
+          <header class="page-header">
+            <h1>친구</h1>
+            <div class="header-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-user-plus"></i>
+              <i class="fa-solid fa-gift"></i>
+              <i class="fa-solid fa-gear"></i>
+            </div>
+          </header>
+
+          <div class="profile">
+            <i class="profile-image fa-solid fa-user"></i>
+            <div class="profile-info">
+              <span class="profile-name">안준상</span>
+              <span class="profile-status"
+                >이 사용자는 프로필을 설정하지 않았습니다😏</span
+              >
+            </div>
+          </div>
+
+          <div class="birthday-section">
+            <h2>생일인 친구</h2>
+            <div class="profile">
+              <i class="profile-image fa-solid fa-user"></i>
+              <div class="profile-info">
+                <span class="profile-name">전희규</span>
+                <span class="profile-status">오늘 생일아닙니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="friend-list">
+            <h2>친구 목록</h2>
+            <div class="profile">
+              <i class="profile-image fa-solid fa-user"></i>
+              <div class="profile-info">
+                <span class="profile-name">김재원</span>
+                <span class="profile-status">하나코 나나 파이팅👍</span>
+              </div>
+            </div>
+
+            <div class="profile">
+              <i class="profile-image fa-solid fa-user"></i>
+              <div class="profile-info">
+                <span class="profile-name">최수진</span>
+                <span class="profile-status">오늘 날씨 좋네요!</span>
+              </div>
+            </div>
+            <!-- 더 추가 하기엔 넘 길어요...-->
+          </div>
+        </section>
+
+        <section class="page-chat">
+          <header class="page-header">
+            <h1>채팅</h1>
+            <div class="header-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-comments"></i>
+              <i class="fa-solid fa-gear"></i>
+            </div>
+          </header>
+
+          <div class="chat-list">
+            <div class="chat-item">
+              <i class="profile-image fa-solid fa-user"></i>
+              <div class="chat-info">
+                <div class="chat-title-row">
+                  <span class="chat-name">김재원</span>
+                  <span class="chat-time">오후 3:45</span>
+                </div>
+                <div class="chat-msg-row">
+                  <div class="chat-msg">오늘 뭐하니</div>
+                  <div class="chat-badge">2</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-item">
+              <i class="profile-image fa-solid fa-user"></i>
+              <div class="chat-info">
+                <div class="chat-title-row">
+                  <span class="chat-name">전희규</span>
+                  <span class="chat-time">오전 11:20</span>
+                </div>
+                <div class="chat-msg-row">
+                  <div class="chat-msg">어 그래 축하 고맙다</div>
+                  <div class="chat-badge">1</div>
+                </div>
+              </div>
+            </div>
+            <!-- 더 추가 하기엔 넘 길어요... -->
+          </div>
+        </section>
+
+        <section class="page-more">
+          <header class="page-header">
+            <h1>더보기</h1>
+            <div class="header-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-qrcode"></i>
+              <i class="fa-solid fa-gear"></i>
+            </div>
+          </header>
+
+          <div class="more-profile">
+            <i class="profile-image fa-solid fa-user"></i>
+            <div class="profile-info">
+              <span class="profile-name">안준상</span>
+              <span class="profile-status">010-5788-1456</span>
+            </div>
+          </div>
+
+          <!-- 메일, 캘린더, 서랍, 선물하기, 쇼핑하기, 이모티콘, 테마, 카카오TV -->
+          <div class="more-list">
+            <div class="more-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>메일</span>
+            </div>
+            <div class="more-item">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>캘린더</span>
+            </div>
+            <div class="more-item">
+              <i class="fa-solid fa-box-archive"></i>
+              <span>서랍</span>
+            </div>
+            <div class="more-item">
+              <i class="fa-solid fa-gift"></i>
+              <span>선물하기</span>
+            </div>
+            <div class="more-item">
+              <i class="fa-solid fa-store"></i>
+              <span>쇼핑하기</span>
+            </div>
+            <div class="more-item">
+              <i class="fa-solid fa-face-grin-tongue-squint"></i>
+              <span>이모티콘</span>
+            </div>
+            <div class="more-item">
+              <i class="fa-solid fa-palette"></i>
+              <span>테마</span>
+            </div>
+            <div class="more-item">
+              <i class="fa-solid fa-clapperboard"></i>
+              <span>카카오TV</span>
+            </div>
+          </div>
+
+          <div class="info-list">
+            <div class="info-item">
+              <span class="info-title">공지사항</span>
+              <i class="fa-solid fa-chevron-right info-icon"></i>
+            </div>
+            <div class="info-item">
+              <span class="info-title">버전 정보</span>
+              <i class="fa-solid fa-chevron-right info-icon"></i>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
