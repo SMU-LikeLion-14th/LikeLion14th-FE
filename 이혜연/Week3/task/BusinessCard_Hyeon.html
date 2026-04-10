@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[이혜연] 명함 만들기</title>
+    <link rel="stylesheet" href="BusinessCard_Hyeon.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-container">
+        <div class="container-header">
+          <h1>명함 만들기</h1>
+          <p>정보를 입력해 명함을 완성하세요</p>
+        </div>
+        <form class="card-form">
+          <div class="input-list">
+            <div class="profile">
+              <label for="profile-img">프로필 사진</label>
+              <input type="file" id="profile-img" accept="image/*" />
+            </div>
+            <div class="name">
+              <label for="name">이름</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="이름을 입력하세요"
+                required
+              />
+            </div>
+            <div class="phone">
+              <label for="phone-num">전화번호</label>
+              <input
+                type="tel"
+                id="phone-num"
+                placeholder="010-0000-00000"
+                required
+              />
+            </div>
+            <div class="email">
+              <label for="email-address">이메일</label>
+              <input
+                type="email"
+                id="email-address"
+                placeholder="example@mail.com"
+                required
+              />
+            </div>
+            <div class="color">
+              <label for="point-color">포인트 컬러</label>
+              <input type="color" id="point-color" required />
+            </div>
+          </div>
+
+          <div class="make-button">
+            <button type="submit" class="card-maker">명함 생성하기</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="output-container">
+        <p class="none-card">생성된 명함이 여기에 표시됩니다</p>
+        <div class="card-container"></div>
+      </div>
+    </div>
+    <script>
+      const cardForm = document.querySelector(".card-form");
+
+      const inputName = document.querySelector("#name");
+      const inputImg = document.querySelector("#profile-img");
+      const inputTel = document.querySelector("#phone-num");
+      const inputEmail = document.querySelector("#email-address");
+      const inputCol = document.querySelector("#point-color");
+
+      const cardContainer = document.querySelector(".card-container");
+      const noneCard = document.querySelector(".none-card");
+
+      cardForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        makeBusinessCard(
+          inputImg.files[0],
+          inputName.value,
+          inputTel.value,
+          inputEmail.value,
+          inputCol.value,
+        );
+        cardContainer.style.justifyContent = "flex-start";
+        cardContainer.style.height = "100%";
+
+        cardForm.reset();
+      });
+
+      function makeBusinessCard(imgFile, name, mobile, email, color) {
+        noneCard.style.display = "none";
+
+        const newCard = document.createElement("div");
+        newCard.classList.add("business-card");
+
+        newCard.innerHTML = `
+
+            <div class="card-img">
+              <div class="name">${name}</div>
+            </div>
+            <div class="card-text">
+              <h1 class="card-name">${name}</h1>
+              <div class="card-tel">
+                <p>Mobile</p>
+                <p>${mobile}</p>
+              </div>
+              <div class="card-mail">
+                <p>Email</p>
+                <p>${email}</p>
+              </div>
+          </div>      
+        `;
+        newCard.style.setProperty("--point-color", color);
+
+        if (imgFile) {
+          const imageUrl = URL.createObjectURL(imgFile);
+          newCard.style.setProperty("--profile-url", `url('${imageUrl}')`);
+          newCard.querySelector(".name").style.display = "none";
+        } else {
+          newCard.style.removeProperty("--profile-url");
+        }
+
+        cardContainer.prepend(newCard);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Mission1_Hyeon.css" />
+
+    <title>[이혜연] 공인중개사 합격 확인</title>
+  </head>
+  <body>
+    <div class="score-box">
+      <form class="score-form">
+        <div class="input-score">
+          <input
+            type="number"
+            id="subject1"
+            placeholder="1과목 점수를 입력하세요"
+            required
+          />
+        </div>
+        <div class="input-score">
+          <input
+            type="number"
+            id="subject2"
+            placeholder="2과목 점수를 입력하세요"
+            required
+          />
+        </div>
+        <button class="get-result" type="submit">결과 보기</button>
+      </form>
+    </div>
+    <script>
+      const score1 = document.querySelector("#subject1");
+      const score2 = document.querySelector("#subject2");
+      const scoreForm = document.querySelector(".score-form");
+
+      scoreForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        alertDisplay(score1.value, score2.value);
+        scoreForm.reset();
+      });
+
+      function alertDisplay(score1, score2) {
+        const sub1 = Number(score1);
+        const sub2 = Number(score2);
+
+        //1. 유효한 값인지 확인 - 0~100 사이의 숫자 (공백 X)
+        if (
+          isNaN(sub1) ||
+          isNaN(sub2) ||
+          sub1 < 0 ||
+          sub1 > 100 ||
+          sub2 < 0 ||
+          sub2 > 100
+        ) {
+          alert("유효한 숫자(0~100)를 입력해주세요");
+
+          return;
+        }
+
+        //2. 두 과목 중 하나라도 40점 미만이라면 과락으로 불합격 처리
+        else if (40 > sub1 || 40 > sub2) {
+          alert("40점 미만인 과목이 있어 불합격하셨습니다.");
+          return;
+        }
+
+        //3. 두 과목의 합이 120점 이상이므로 합격 처리
+        else if (sub1 + sub2 >= 120) {
+          alert("두 과목 획득 점수의 합이 120점이 넘었으므로 합격하셨습니다.");
+          // console.log(sub1 + sub2); // 오류 확인용 코드
+          return;
+        }
+        //4. 두 과목의 합이 120점 미만이므로 불합격 처리
+        else {
+          alert(
+            "두 과목 획득 점수의 합이 120점이 넘지 못하여 불합격하셨습니다.",
+          );
+          return;
+        }
+      }
+    </script>
+  </body>
+</html>
