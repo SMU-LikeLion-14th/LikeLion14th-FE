@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../week3/mission1.css" />
+    <title>mission1</title>
+  </head>
+  <body>
+    <div class="box">
+      <input
+        id="score1Input"
+        type="number"
+        placeholder="1과목 점수를 입력하세요."
+      />
+      <input
+        id="score2Input"
+        type="number"
+        placeholder="2과목 점수를 입력하세요."
+      />
+      <button id="submitBtn">결과 보기</button>
+    </div>
+
+    <script>
+      const score1Input = document.getElementById("score1Input");
+      const score2Input = document.getElementById("score2Input");
+      const button = document.getElementById("submitBtn");
+
+      button.addEventListener("click", function () {
+        const score1 = score1Input.value.trim();
+        const score2 = score2Input.value.trim();
+
+        // 중첩 조건문은 추후에는 지양하기 (시간복잡도)
+        if (
+          score1 === "" ||
+          score2 === "" ||
+          score1 < 0 ||
+          score2 < 0 ||
+          score1 > 100 ||
+          score2 > 100
+        ) {
+          alert("0~100점 사이의 점수를 입력해주세요.");
+        } else if (score1 < 40 || score2 < 40 || score1 + score2 < 120) {
+          alert("탈락입니다. 사유: 과락");
+        } else {
+          alert("축하합니다. 합격입니다.");
+        }
+      });
+    </script>
+  </body>
+</html>

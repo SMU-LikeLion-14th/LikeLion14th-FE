@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../week3/BussinessCard.css" />
+    <title>BussinessCard</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="option" id="cardForm">
+        <div class="option-title">
+          <h2>명함 생성기</h2>
+          <span class="option-titleinfo">정보를 입력해 명함을 완성하세요</span>
+        </div>
+        <div class="option-image">
+          <span>프로필 사진</span>
+          <input id="imageInput" type="file" />
+        </div>
+        <div class="option-name">
+          <span>이름</span>
+          <input
+            id="nameInput"
+            type="text"
+            placeholder="이름을 입력하세요"
+            required
+          />
+        </div>
+        <div class="option-phone">
+          <span>전화번호</span>
+          <input
+            id="phoneInput"
+            type="text"
+            placeholder="010-0000-0000"
+            required
+          />
+        </div>
+        <div class="option-email">
+          <span>이메일</span>
+          <input
+            id="emailInput"
+            type="email"
+            placeholder="example@email.com"
+            required
+          />
+        </div>
+        <div class="option-color">
+          <span>포인트 컬러</span>
+          <input id="colorInput" type="color" />
+        </div>
+        <button class="btn btn-primary" type="submit">명함 생성하기</button>
+      </form>
+
+      <div class="result">
+        <span class="result-default">생성한 명함이 여기에 표시됩니다.</span>
+      </div>
+    </div>
+
+    <script>
+      const imageInput = document.getElementById("imageInput");
+      const nameInput = document.getElementById("nameInput");
+      const phoneInput = document.getElementById("phoneInput");
+      const emailInput = document.getElementById("emailInput");
+      const colorInput = document.getElementById("colorInput");
+      const result = document.querySelector(".result");
+      const form = document.getElementById("cardForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const defaultText = document.querySelector(".result-default");
+        if (defaultText) {
+          defaultText.remove();
+        }
+
+        const card = document.createElement("div");
+        card.classList.add("result-card");
+
+        card.style.borderLeft = `6px solid ${colorInput.value}`;
+
+        const file = imageInput.files[0];
+        let profile;
+
+        if (file) {
+          const img = document.createElement("img");
+          img.style.width = "100px";
+          img.style.height = "100px";
+          img.style.borderRadius = "50%";
+          img.style.objectFit = "cover";
+          img.src = URL.createObjectURL(file);
+          profile = img;
+        } else {
+          const imgText = document.createElement("div");
+          imgText.style.width = "100px";
+          imgText.style.height = "100px";
+          imgText.style.borderRadius = "50%";
+          imgText.style.backgroundColor = colorInput.value;
+          imgText.style.display = "flex";
+          imgText.style.alignItems = "center";
+          imgText.style.justifyContent = "center";
+          imgText.style.color = "white";
+          imgText.style.fontSize = "30px";
+          imgText.style.fontWeight = "bold";
+
+          imgText.textContent = nameInput.value;
+
+          profile = imgText;
+        }
+
+        const info = document.createElement("div");
+
+        const name = document.createElement("h2");
+        name.textContent = nameInput.value;
+        name.style.fontSize = "25px"
+
+        const phoneTitle = document.createElement("span");
+        phoneTitle.textContent = "MOBILE";
+        phoneTitle.style.fontSize = "12px";
+        phoneTitle.style.color = "#999";
+
+        const phone = document.createElement("p");
+        phone.textContent = phoneInput.value;
+
+        const emailTitle = document.createElement("span");
+        emailTitle.textContent = "EMAIL";
+        emailTitle.style.fontSize = "12px";
+        emailTitle.style.color = "#999";
+
+        const email = document.createElement("p");
+        email.textContent = emailInput.value;
+
+        info.appendChild(name);
+        info.appendChild(phoneTitle);
+        info.appendChild(phone);
+        info.appendChild(emailTitle);
+        info.appendChild(email);
+
+        card.appendChild(profile);
+        card.appendChild(info);
+
+        result.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
