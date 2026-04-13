@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="mission.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p>시험 합격 예측기 만들기</p>
+      <form id="form">
+        <input
+          type="number"
+          id="score1"
+          placeholder="시험 점수1 입력"
+          min="0"
+          max="100"
+        />
+        <input
+          type="number"
+          id="score2"
+          placeholder="시험 점수2 입력"
+          min="0"
+          max="100"
+        />
+        <!--줄 바꿈 왜이래;; -->
+        <button>합격 예측하기</button>
+      </form>
+      <p id="result" class="hidden"></p>
+    </div>
+  </body>
+</html>
+
+<script>
+  let form = document.querySelector("#form");
+  let result = document.querySelector("#result");
+  let score1 = document.querySelector("#score1");
+  let score2 = document.querySelector("#score2");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let s1 = Number(score1.value.trim());
+    let s2 = Number(score2.value.trim());
+
+    if (s1 < 0 || s1 > 100 || s2 < 0 || s2 > 100) {
+      alert("0에서 100 사이의 점수를 입력해주세요.");
+      return;
+    }
+
+    if (s1 >= 40 && s2 >= 40 && s1 + s2 >= 120) {
+      result.innerText = "합격입니다!";
+      result.classList.remove("hidden");
+    } else {
+      result.innerText = "불합격입니다.";
+      result.classList.remove("hidden");
+    }
+  });
+</script>
