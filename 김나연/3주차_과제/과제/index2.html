@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index2.css" />
+  </head>
+  <body>
+    <div class="show">
+      <div class="container">
+        <div class="title">
+          <h3>명함 만들기</h3>
+          <span id="infor">정보를 입력해 명함을 완성하세요</span>
+        </div>
+
+        <div class="file">
+          <span>프로필 사진</span>
+          <label for="profile">
+            <input type="file" id="profile" />
+          </label>
+        </div>
+
+        <div class="name">
+          <span>이름</span>
+          <input type="text" id="name" placeholder="이름을 입력하세요" />
+        </div>
+
+        <div class="number">
+          <span>전화번호</span>
+          <input type="text" id="number" placeholder="010-0000-0000" />
+        </div>
+
+        <div class="email">
+          <span>이메일</span>
+          <input type="email" id="email" placeholder="example@mail.com" />
+        </div>
+
+        <div class="color">
+          <span>포인트 컬러</span>
+          <input type="color" id="color" />
+        </div>
+
+        <div class="btn">
+          <button id="check">명함 생성하기</button>
+        </div>
+      </div>
+
+      <div class="card" id="cardContainer">
+        <div id="cardColor"></div>
+        
+        <div class="card-image">
+          <img id="viewPhoto" alt="프로필사진" />
+        </div>
+
+        <div class="group">
+          <h4 id="viewName">이름</h4>
+          <div class="detail1">
+            <p>MOBILE</p>
+            <span id="viewNumber">010-0000-0000</span>
+          </div>
+
+          <div class="detail2">
+            <p>EMAIL</p>
+            <span id="viewEmail">example@naver.com</span>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const name = document.querySelector("#name");
+    const number = document.querySelector("#number");
+    const email = document.querySelector("#email");
+    const color = document.querySelector("#color");
+    const btn = document.querySelector("#check");
+
+    const cardContainer=document.querySelector(".card");
+    const viewName=document.querySelector("#viewName");
+    const viewPhoto=document.querySelector("#viewPhoto");
+    const viewNumber=document.querySelector("#viewNumber");
+    const viewEmail=document.querySelector("#viewEmail");
+
+    btn.addEventListener("click", function () {
+      const nameInput = name.value;
+      const numberInput = number.value;
+      const emailInput = email.value;
+      const colorInput = color.value;
+
+      if (emailInput === "") {
+        email.setCustomValidity("이 입력란을 작성하세요");
+        email.reportValidity();
+        return;
+      }
+
+      if (!emailInput.includes("@")) {
+        email.setCustomValidity(
+          `이메일 주소에 '@'를 포함해주세요. '${emailInput}'에 '@'가 없습니다`,
+        );
+        email.reportValidity();
+        return;
+      }
+      
+
+      viewName.textContent=nameInput;
+      viewEmail.textContent=emailInput;
+      viewNumber.textContent=numberInput;
+
+      cardContainer.style.display="flex";
+      const cardColorElement=document.querySelector("#cardColor");
+      cardColorElement.style.backgroundColor = colorInput;
+
+      const file=document.querySelector("#profile").files[0];
+
+      if(file){
+        const reader=new FileReader();
+
+        reader.onload=function(e){
+          viewPhoto.src=e.target.result;
+          viewPhoto.style.display="block";
+        }
+        reader.readAsDataURL(file);
+      }
+
+
+    });
+  </script>
+</html>

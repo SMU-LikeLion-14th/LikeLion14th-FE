@@ -1,0 +1,34 @@
+.box{
+  width: 500px;
+  height: 300px;
+}
+
+.score1{
+  margin: 10px;
+}
+
+.score2{
+  margin: 10px;
+}
+
+.see{
+  margin: 10px;
+}
+#score1{
+  width: 400px;
+  height: 80px;
+  border-radius: 5px;
+}
+
+#score2{
+  width: 400px;
+  height: 80px;
+  border-radius: 5px;
+}
+
+#checkBtn{
+  width: 410px;
+  height: 100px;
+  background-color: rgb(79, 79, 239);
+  border-radius: 5px;
+}

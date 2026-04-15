@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="box">
+    <div class="score1">
+      <input id="score1" type="number" placeholder="1과목 점수를 입력하세요">
+    </div>
+    <div class="score2">
+      <input id="score2" type="number" placeholder="1과목 점수를 입력하세요">
+    </div>
+    <div class="see">
+      <button id="checkBtn">결과 보기</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  const score1=document.querySelector("#score1");
+
+  const score2=document.querySelector("#score2");
+
+  const btn=document.querySelector("#checkBtn");
+
+  btn.addEventListener("click",function(){
+    const s1=Number(score1.value);
+    const s2=Number(score2.value);
+
+  //입력값 검사
+  if(isNaN(s1)||isNaN(s2)
+  ||s1<0||s1>100||s2<0||s2>100){
+    alert("0~100사이 숫자를 입력하세요");
+    return;
+  }
+
+  //과락 검사
+  if(s1<40 || s2<40){
+    alert("과락으로 불합격입니다.");
+    return;
+  }
+
+  //합격인경우
+  if(s1+s2>=120){
+    alert("합격입니다!");
+    return;
+  }else{
+    alert("불합격입니다");
+  }
+
+  })
+</script>
+</html>
