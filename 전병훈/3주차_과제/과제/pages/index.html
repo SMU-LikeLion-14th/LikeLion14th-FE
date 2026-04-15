@@ -64,14 +64,11 @@
             e.preventDefault();
             const form = document.querySelector("form");
 
+            let imgURL = null;
             const file = form.querySelector('input[type="file"]').files[0];
-            if (!file) {
-                const imgURL = null;
-            } else {
-                const imgURL = URL.createObjectURL(file);
+            if (file) {
+                imgURL = URL.createObjectURL(file);
             }
-
-            console.log(imgURL);
 
             const name = form.querySelector('[name="name"]').value.trim();
             const phone = form.querySelector('[name="phone"]').value.trim();
@@ -91,7 +88,7 @@
                         ${
                             imgURL
                                 ? `<img src="${imgURL}" />`
-                                : `<div style="display:flex; align-items:center; justify-content:center; width:100px; height:100px; border:1px solid #d9d9d9; border-radius:9999px; background-color:green;">
+                                : `<div style="display:flex; align-items:center; justify-content:center; width:100px; height:100px; border:1px solid #d9d9d9; border-radius:9999px; background-color:${color}; color:white; font-size:1.5rem; font-weight:bold;">
                                 ${name.slice(0, 2)}
                             </div>`
                         }
