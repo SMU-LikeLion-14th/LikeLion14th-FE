@@ -1,0 +1,140 @@
+/* global */
+body {
+    width: 100vw;
+    min-height: 80vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9d9d9;
+}
+main {
+    display: flex;
+    border: 1px solid #d9d9d9;
+    border-radius: 2rem;
+    background-color: white;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-right: 1px solid #d9d9d9;
+    padding: 5rem;
+}
+section:last-child {
+    border-right: 0px;
+}
+section div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* title */
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+h2 {
+    font-size: 1rem;
+    color: gray;
+}
+main {
+    display: flex;
+    gap: 1rem;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+input {
+    height: 1.75rem;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    padding-left: 1rem;
+}
+input::placeholder {
+    font-size: 0.75rem;
+}
+input:focus {
+    outline: none;
+    border: 1px solid blue;
+}
+input:not(:placeholder-shown):not(:focus):not([type="file"]):not(
+        [type="color"]
+    ) {
+    background-color: rgb(228, 239, 248);
+}
+input[type="file"] {
+    border: none;
+    border-radius: 0;
+    font-size: 0.75rem;
+    color: gray;
+    padding-left: 0;
+}
+input[type="color"] {
+    padding-left: 0.125rem;
+}
+label {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+button {
+    background-color: blue;
+    border: 0;
+    border-radius: 6px;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    color: white;
+}
+
+/* 명함 */
+article {
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 2rem;
+}
+figure {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+}
+img {
+    height: 100px;
+    width: 100px;
+    border-radius: 9999px;
+}
+p {
+    font-size: 0.75rem;
+    color: gray;
+}
+div p:last-child {
+    color: rgb(57, 56, 56);
+}
+figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
