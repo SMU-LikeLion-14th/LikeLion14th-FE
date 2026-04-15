@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>명함</title>
+
+    <style>
+      :root {
+        --primary-color: #4e4caf;
+        --bg-color: #f5f7fa;
+        --card-bg: #ffffff;
+        --text-color: #333;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg-color);
+      }
+
+      section {
+        display: flex;
+        height: 100vh;
+      }
+      #formPass {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      aside {
+        width: 350px;
+        background: var(--card-bg);
+        padding: 30px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      aside .title p {
+        color: var(--text-color);
+      }
+
+      aside h3 {
+        margin: 0;
+        color: var(--primary-color);
+      }
+
+      aside div p {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+        color: black;
+      }
+
+      aside div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      aside input:not(#profileInput):not(#colorPicker) {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: 0.2s;
+      }
+
+      aside input:focus {
+        background-color: #4e4caf26;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .checkBtn {
+        margin-top: 10px;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+      }
+
+      .checkBtn:hover {
+        opacity: 0.9;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: var(--bg-color);
+
+        gap: 20px;
+        flex-direction: column;
+      }
+
+      main.empty {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        width: 320px;
+        height: 180px;
+        background-color: white;
+        color: var(--text-color);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card .content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .card .top-bar {
+        height: 10px;
+        border-radius: 15px 15px 0 0;
+      }
+
+      .card img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .card .info {
+        font-size: 14px;
+      }
+
+      .no-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #ddd;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-weight: bold;
+        color: #555;
+        font-size: 18px;
+      }
+
+      .card img,
+      .no-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <aside>
+        <div class="title">
+          <h3>명함 만들기</h3>
+          <p>정보를 입력해 명함을 완성하세요</p>
+        </div>
+
+        <form id="formPass">
+          <div class="profile">
+            <p>프로필 사진</p>
+            <input id="profileInput" type="file" />
+          </div>
+
+          <div class="name">
+            <p>이름</p>
+            <input
+              id="nameInput"
+              type="text"
+              placeholder="이름을 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="num">
+            <p>전화번호</p>
+            <input
+              id="numInput"
+              type="text"
+              placeholder="010-0000-0000"
+              required
+            />
+          </div>
+          <div class="email">
+            <p>이메일</p>
+            <input
+              id="emailInput"
+              type="email"
+              placeholder="exmample@mail.com"
+              required
+            />
+          </div>
+          <div class="color">
+            <p>포인트 컬러</p>
+            <input id="colorPicker" type="color" />
+          </div>
+          <button class="checkBtn" type="submit">명함 생성하기</button>
+        </form>
+      </aside>
+
+      <main>
+        <p id="guideText">생성된 명함이 여기에 표시됩니다.</p>
+      </main>
+    </section>
+
+    <script>
+      const form = document.getElementById("formPass");
+      const nameInput = document.getElementById("nameInput");
+      const numInput = document.getElementById("numInput");
+      const emailInput = document.getElementById("emailInput");
+      const colorPicker = document.getElementById("colorPicker");
+      const profileInput = document.getElementById("profileInput");
+      const main = document.querySelector("main");
+      const guide = document.getElementById("guideText");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = nameInput.value.trim();
+        const num = numInput.value.trim();
+        const email = emailInput.value.trim();
+        const color = colorPicker.value;
+
+        // 이미지 처리
+        let profileHTML = "";
+
+        if (profileInput.files.length > 0) {
+          const imgURL = URL.createObjectURL(profileInput.files[0]);
+          profileHTML = `<img src="${imgURL}" />`;
+        } else {
+          profileHTML = `
+      <div class="no-photo">
+        ${name.charAt(0).toUpperCase()}
+      </div>
+    `;
+        }
+
+        // 카드 생성
+        const cardHTML = `
+      <div class="card">
+        <div class="top-bar" style="background:${color}"></div>
+
+        <div class="content">
+          ${profileHTML}
+          <div class="info">
+            <p><strong>${name}</strong></p>
+            <p>${num}</p>
+            <p>${email}</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+        if (guide) {
+          guide.remove();
+          main.classList.remove("empty");
+        }
+
+        main.insertAdjacentHTML("beforeend", cardHTML);
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
