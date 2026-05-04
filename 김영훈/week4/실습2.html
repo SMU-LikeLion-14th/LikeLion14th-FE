@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../week4/실습2.css">
+    <title>실습2</title>
+</head>
+<body>
+    <h1>게시물 불러오기</h1>
+    <button id="loadBtn">게시물 불러오기</button>
+
+    <div id="postContainer"></div>
+
+    <script>
+        const button = document.getElementById("loadBtn");
+        const postContainer = document.getElementById("postContainer");
+
+        button.addEventListener("click", () => {
+            fetch("https://jsonplaceholder.typicode.com/posts")
+            .then(response => response.json())
+            .then(posts => {
+                postContainer.innerHTML = "";
+
+                posts.forEach(post => {
+                    const postDiv = document.createElement("div");
+
+                    postDiv.classList.add("post");
+
+                    postDiv.innerHTML = `
+                        <h3>${post.title}</h3>
+                        <p>${post.body}</p>
+                    `;
+                    postContainer.appendChild(postDiv);
+                });
+            })
+            .catch(e => {
+                console.error("에러 발생: ", error);
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../week4/movie.css" />
+    <title>movie</title>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="index.html" class="home">홈</a>
+      <a href="movie.html" class="now">현재 상영 중</a>
+    </div>
+
+    <div class="title">
+      <h1>현재 상영 중 영화 목록</h1>
+    </div>
+    <div id="movieContainer"></div>
+    <script>
+      const movie = document.getElementById("movieContainer");
+
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYjIyNTVkMTQ5NmM0ZTU5ZmVjMGUyYjlhZjQ0MjY3MyIsIm5iZiI6MTc3Nzc5NDE4MS4wNjIsInN1YiI6IjY5ZjZmYzg1NTA1ODk5Yjk5NTdkMTAzYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xas0vw2-aUD_azDCxL0S_73voiZxLGv6bXJTMM9P2hk",
+        },
+      };
+
+      fetch(
+        "https://api.themoviedb.org/3/movie/now_playing?language=ko-KR",
+        options,
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          res.results.forEach((m) => {
+            const card = document.createElement("div");
+            card.classList.add("movie-card");
+
+            card.innerHTML = `
+              <div class="poster-wrapper">
+                <img src="https://image.tmdb.org/t/p/w500${m.poster_path}" alt="${m.title}">
+                
+                <div class="overlay">
+                  <h3>${m.title}</h3>
+                  <p>평점: ${m.vote_average}</p>
+                  <p>개봉일: ${m.release_date}</p>
+                </div>
+              </div>
+            `;
+            movie.appendChild(card);
+          });
+        })
+        .catch((err) => console.error(err));
+    </script>
+  </body>
+</html>
