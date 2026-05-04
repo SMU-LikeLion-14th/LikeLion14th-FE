@@ -1,0 +1,26 @@
+.container {
+  text-align: center;
+}
+
+.post-card {
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+#card{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  padding: 30px;
+}
+
+#btn {
+  width: 120px;
+  height: 40px;
+  background-color: aqua;
+  cursor: pointer;
+}
