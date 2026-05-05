@@ -1,0 +1,29 @@
+h2 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+main a {
+    background-color: cyan;
+    color: black;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #000000;
+    border-top: 1px solid #1f1f1f;
+}
+
+footer p {
+    font-size: 0.75rem;
+    color: #666666;
+    font-weight: 400;
+}
