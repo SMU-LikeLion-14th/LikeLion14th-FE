@@ -1,0 +1,45 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  padding: 40px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+#post-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  height: 30px;
+  width: 100px;
+}
+
+#post-button:hover {
+  background-color: #0056b3;
+}
+
+#post-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.post {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.post-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
