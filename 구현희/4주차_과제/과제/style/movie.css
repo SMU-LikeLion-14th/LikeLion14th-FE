@@ -1,0 +1,130 @@
+body {
+  background-color: black;
+  color: aqua;
+  text-align: center;
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.584);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: aqua;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+h3 {
+  margin-bottom: 40px;
+}
+
+p {
+  color: white;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: calc(100vh - 60px);
+  text-align: center;
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: aqua;
+  padding: 10px 20px;
+  border-style: none;
+  border-radius: 20px;
+
+  font-size: 15px;
+  text-align: center;
+  font-weight: 700;
+}
+
+#movie-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movie-card {
+  width: calc(16.66% - 20px);
+  transition: 0.3s;
+}
+.movie-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 5px 5px 15px rgba(0, 255, 255, 0.6);
+}
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.poster {
+  width: 100%;
+  display: block;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.overlay {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.img-wrapper:hover .overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay h3 {
+  margin-bottom: 10px;
+  color: aqua;
+}
+
+.overlay p {
+  font-size: 12px;
+  max-height: 80px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .movie-card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card {
+    width: 100%;
+  }
+}
