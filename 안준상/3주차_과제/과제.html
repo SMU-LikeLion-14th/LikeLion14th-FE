@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>명함 만들기</title>
+    <link rel="stylesheet" href="과제.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="form">
+        <div class="box">
+          <h1>명함 만들기</h1>
+          <p>정보를 입력하여 명함을 완성하세요.</p>
+        </div>
+        <div class="box">
+          <span>프로필 사진</span>
+          <div class="box-file">
+            <label for="image" class="file-label">파일 선택</label>
+            <input type="file" id="image" class="hidden" accept="image/*" />
+            <span id="file-name">선택된 파일 없음</span>
+          </div>
+        </div>
+        <div class="box">
+          <span>이름</span>
+          <input
+            type="text"
+            id="name"
+            placeholder="이름을 입력하세요."
+            required
+          />
+        </div>
+        <div class="box">
+          <span>전화번호</span>
+          <input type="text" id="number" placeholder="010-0000-0000" required />
+        </div>
+        <div class="box">
+          <span>이메일</span>
+          <input
+            type="email"
+            id="email"
+            placeholder="example@email.com"
+            required
+          />
+        </div>
+        <div class="box">
+          <span>포인트 컬러</span>
+          <input type="color" id="color" />
+        </div>
+        <button>명함 생성하기</button>
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      let form = document.querySelector("#form");
+      let result = document.querySelector("#result");
+
+      let imageInput = document.querySelector("#image");
+      let fileNameDisplay = document.querySelector("#file-name");
+      let nameInput = document.querySelector("#name");
+      let numberInput = document.querySelector("#number");
+      let emailInput = document.querySelector("#email");
+      let colorInput = document.querySelector("#color");
+
+      //   파일 이름 표시
+      imageInput.addEventListener("change", () => {
+        let file = imageInput.files[0];
+        if (file) {
+          fileNameDisplay.textContent = file.name;
+        } else {
+          fileNameDisplay.textContent = "선택된 파일 없음";
+        }
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let imageFile = imageInput.files[0];
+        let name = nameInput.value.trim();
+        let number = numberInput.value.trim();
+        let email = emailInput.value.trim();
+        let color = colorInput.value;
+
+        let imageHtml = "";
+        if (imageFile) {
+          let imageUrl = URL.createObjectURL(imageFile);
+          imageHtml = `<img class="result-image" src="${imageUrl}" alt="프로필 사진" />`;
+        } else {
+          imageHtml = `<img class="result-image" src="https://i.namu.wiki/i/1Z4d9KTgo1ETz4u0-Hvo8iyQV3A7JfZJ1XGaQucav7U_T_x-84pJYxr4np2jdkarzDQIzmcPNOHDijfu23lyjkytljYJOhvj-kqaSwF_dBxFWynb88i3QxKGGlljUDu3F6fPJzi2RxZxJxZmucVp-A.webp" alt="기본 프로필 사진" />`;
+        }
+
+        if (name === "") {
+          alert("이름을 입력하세요.");
+          return;
+        }
+
+        let numberPattern = /^\d{3}-\d{4}-\d{4}$/;
+        if (!numberPattern.test(number)) {
+          alert("전화번호 형식이 올바르지 않습니다. (예: 010-0000-0000)");
+          return;
+        }
+
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert("이메일 형식이 올바르지 않습니다. (예: example@email.com)");
+          return;
+        }
+        let cardHTML = `<div class="card" style="background: linear-gradient(to right, ${color} 0%, #f0f0f0 100%)">
+            ${imageHtml}
+            <div class="profile">
+              <h2 class="result-name">${name}</h2>
+              <p>MOBILE</p>
+              <p class="result-number">${number}</p>
+              <p>EMAIL</p>
+              <p class="result-email">${email}</p>
+            </div>
+          </div>`;
+
+        result.insertAdjacentHTML("beforeend", cardHTML);
+      });
+    </script>
+  </body>
+</html>
