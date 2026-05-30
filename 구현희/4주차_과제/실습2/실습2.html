@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      h3 {
+        margin-top: 50px;
+      }
+
+      button {
+        background-color: rgb(58, 164, 251);
+        color: white;
+        padding: 8px;
+        border-style: none;
+        border-radius: 10px;
+      }
+
+      #container {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        border: 1px solid rgba(141, 139, 139, 0.475);
+        padding: 10px;
+        margin: 10px;
+        box-shadow: 2px 2px 7px rgba(128, 128, 128, 0.393);
+        border-radius: 10px;
+        width: 280px;
+        height: 200px;
+        padding: 15px;
+
+        gap: 15px;
+      }
+
+      .title {
+        font-size: 18px;
+        font-weight: 700;
+        color: rgb(21, 44, 87);
+        margin: 0;
+      }
+
+      .body {
+        font-size: 12px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>게시글 리스트 불러올게용</h3>
+    <button id="btn">게시글 불러오기</button>
+    <div id="container"></div>
+
+    <script>
+      document.getElementById("btn").addEventListener("click", (e) => {
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            data.forEach((element) => {
+              const container = document.getElementById("container");
+              const box = document.createElement("div");
+              const title = document.createElement("p");
+              const body = document.createElement("p");
+
+              box.className = "card";
+              title.className = "title";
+              body.className = "body";
+
+              title.innerHTML += element.title;
+              body.innerHTML += element.body;
+
+              container.appendChild(box);
+              box.appendChild(title);
+              box.appendChild(body);
+            });
+          })
+          .catch((error) => console.error("에러 발생:", error));
+      });
+    </script>
+  </body>
+</html>

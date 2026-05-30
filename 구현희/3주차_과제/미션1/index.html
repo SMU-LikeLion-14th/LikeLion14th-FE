@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #formPass {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        width: 300px;
+      }
+      #formPass input {
+        border-radius: 10px;
+        padding: 10px;
+        width: 250px;
+        margin: 10px;
+        border: 1px solid #ccc;
+      }
+
+      .checkBtn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #3e67eb;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      .checkBtn:hover {
+        background-color: #454ca0;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form id="formPass">
+        <input
+          id="input1"
+          type="number"
+          placeholder="1과목 점수를 입력하세요"
+        />
+        <input
+          id="input2"
+          type="number"
+          placeholder="2과목 점수를 입력하세요"
+        />
+        <button class="checkBtn">결과 보기</button>
+      </form>
+    </section>
+
+    <script>
+      const form = document.querySelector("#formPass");
+      const score1 = document.querySelector("#input1");
+      const score2 = document.querySelector("#input2");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        upgradePassOrFail(score1.value, score2.value);
+      });
+
+      function upgradePassOrFail(score1, score2) {
+        const score1Value = Number(score1);
+        const score2Value = Number(score2);
+
+        // 1. 빈칸 또는 숫자 아닐 떄
+        if (
+          score1 === "" ||
+          score2 === "" ||
+          isNaN(score1Value) ||
+          isNaN(score2Value)
+        ) {
+          alert("0~100 사이의 숫자를 입력하세요.");
+          return;
+        }
+
+        // 2. 범위 체크
+        if (
+          score1Value < 0 ||
+          score1Value > 100 ||
+          score2Value < 0 ||
+          score2Value > 100
+        ) {
+          alert("점수는 0~100 사이여야 합니다.");
+          return;
+        }
+
+        // 3. 과락
+        if (score1Value < 40 || score2Value < 40) {
+          alert("불합격 (과락)");
+          return;
+        }
+
+        // 4. 총점 판정
+        const total = score1Value + score2Value;
+
+        if (total >= 120) {
+          alert("합격하셨습니다.");
+        } else {
+          alert("불합격 (총점 미달)");
+        }
+      }
+    </script>
+  </body>
+</html>
