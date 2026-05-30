@@ -1,0 +1,26 @@
+body
+{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#postContainer {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.post {
+    border: 1px solid #ccc;
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;    
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}

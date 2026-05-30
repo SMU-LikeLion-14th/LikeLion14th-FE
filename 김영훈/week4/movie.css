@@ -1,0 +1,136 @@
+body {
+  background-color: #000000;
+  margin: 0px;
+  height: 100vh;
+  width: 100%;
+}
+
+.title h1 {
+  color: #ff0000ac;
+  text-align: center;
+}
+
+.index h1 {
+  color: #ff0000ac;
+  text-align: center;
+  font-size: 50px;
+}
+
+.index
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: 100%;
+}
+
+.index p{
+  color: #f2f2f2;
+  text-align: center;
+  margin: 0px;
+}
+
+.movieBtn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    background-color: #ff0000ac;
+    color: black;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.nav {
+  background-color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 50px;
+  padding: 0 50px;
+  gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+}
+
+.home,
+.now
+{
+  display: flex;
+  color: #ff0000ac;
+  font-size: 20px;
+}
+
+#movieContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.movie-card {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.poster-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.poster-wrapper img {
+  width: 100%;
+  display: block;
+  transition: 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  text-align: center;
+
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.overlay h3 {
+  color: #ff0000ac;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.overlay p {
+  font-size: 14px;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.poster-wrapper:hover img {
+  filter: blur(2px) brightness(0.9);
+  transform: scale(1.05);
+}
+
+.poster-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+}
