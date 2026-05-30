@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>misson1</title>
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
+    </head>
+    <body>
+        <section>
+            <form>
+                <input
+                    class="score-input"
+                    placeholder="1과목 점수를 입력해주세요"
+                    type="number"
+                    min="0"
+                    max="100"
+                />
+                <input
+                    class="score-input"
+                    placeholder="2과목 점수를 입력해주세요"
+                    type="number"
+                    min="0"
+                    max="100"
+                />
+                <button>결과 보기</button>
+            </form>
+        </section>
+        <script>
+            document.querySelector("form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const score1 = Number(
+                    document.querySelectorAll(".score-input")[0].value.trim(),
+                );
+                const score2 = Number(
+                    document.querySelectorAll(".score-input")[1].value.trim(),
+                );
+                alert(
+                    score1 > 40 && score2 > 40 && score1 + score2 > 120
+                        ? "합격입니다."
+                        : "불합격입니다.",
+                );
+            });
+        </script>
+    </body>
+</html>

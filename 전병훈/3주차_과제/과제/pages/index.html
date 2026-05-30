@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>3주차 과제</title>
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
+    </head>
+    <body>
+        <main>
+            <section>
+                <div>
+                    <h1>명함 만들기</h1>
+                    <h2>정보를 입력해 명함을 완성하세요</h2>
+                </div>
+                <form>
+                    <div>
+                        <label for="profile">프로필 사진</label>
+                        <div>
+                            <input name="profile" type="file" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="name">이름</label>
+                        <input
+                            name="name"
+                            required
+                            type="text"
+                            placeholder="이름을 입력하세요"
+                        />
+                    </div>
+                    <div>
+                        <label for="phone">전화번호</label>
+                        <input
+                            name="phone"
+                            type="tel"
+                            required
+                            placeholder="010-0000-0000"
+                        />
+                    </div>
+                    <div>
+                        <label for="email">이메일</label>
+                        <input
+                            name="email"
+                            type="email"
+                            placeholder="example@mail.com"
+                        />
+                    </div>
+                    <div>
+                        <label for="color">포인트 컬러</label>
+                        <input name="color" type="color" />
+                    </div>
+                    <button>명함 생성하기</button>
+                </form>
+            </section>
+            <section>
+                <h3>생성된 명함이 여기에 표시됩니다.</h3>
+            </section>
+        </main>
+    </body>
+    <script>
+        document.querySelector("form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const form = document.querySelector("form");
+
+            let imgURL = null;
+            const file = form.querySelector('input[type="file"]').files[0];
+            if (file) {
+                imgURL = URL.createObjectURL(file);
+            }
+
+            const name = form.querySelector('[name="name"]').value.trim();
+            const phone = form.querySelector('[name="phone"]').value.trim();
+            const email =
+                form.querySelector('[name="email"]').value.trim() === ""
+                    ? "example@mail.com"
+                    : form.querySelector('[name="email"]').value.trim();
+            const color = form.querySelector('[type="color"]').value;
+
+            document.querySelector("h3").style.display = "none";
+
+            const section = document.querySelectorAll("section");
+            section[1].insertAdjacentHTML(
+                "beforeend",
+                `<article style="border-left: 8px solid ${color}">
+                    <figure>
+                        ${
+                            imgURL
+                                ? `<img src="${imgURL}" />`
+                                : `<div style="display:flex; align-items:center; justify-content:center; width:100px; height:100px; border:1px solid #d9d9d9; border-radius:9999px; background-color:${color}; color:white; font-size:1.5rem; font-weight:bold;">
+                                ${name.slice(0, 2)}
+                            </div>`
+                        }
+                        <figcaption>
+                            <h1>${name}</h1>
+                            <div>
+                                <div>
+                                    <p>MOBILE</p>
+                                    <p>${phone}</p>
+                                </div>
+                                <div>
+                                    <p>EMAIL</p>
+                                    <p>${email}</p>
+                                </div>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </article>`,
+            );
+        });
+    </script>
+</html>
